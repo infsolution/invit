@@ -1,0 +1,56 @@
+.rsvpContainer{
+    display: flex;
+    font-weight: 600;
+    background: #FFFFFF;
+    width: 70rem;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.rsvpContainer > div{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 4rem;
+
+
+
+}
+
+.rsvpContainer > div > span{
+    margin: 0.3rem;
+}
+.rsvpButton{
+    display: flex;
+    align-items: center;
+    background: #FFFFFF;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.rsvpButton > button{
+    width: 100%;
+    height: 5rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 5%;
+    color: #FFFFFF;
+    font-weight: 400;
+    transition: background-color 0.2s;
+}
+.rsvpButton > button:first-child{
+    margin: 1rem 0.2rem 1rem 1rem;
+    background: #4747e6;
+}
+
+.rsvpButton > button:last-child{
+    margin: 1rem 1rem 1rem 0.2rem;
+    background: #e94949;
+}
+.rsvpButton > button:hover{
+    background: #00fbffb7;
+    color: black;
+}
