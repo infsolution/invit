@@ -36,11 +36,12 @@
     align-items: center;
     justify-content: center;
     border: 0;
-    border-radius: 5%;
+    border-radius: 2%;
     color: #FFFFFF;
     font-weight: 400;
     transition: background-color 0.2s;
 }
+
 .rsvpButton > button:first-child{
     margin: 1rem 0.2rem 1rem 1rem;
     background: #4747e6;

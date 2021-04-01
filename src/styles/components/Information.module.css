@@ -1,0 +1,13 @@
+.containerInformation {
+    background: #FFFFFF;
+    width: 70rem;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
+    margin-top: 2rem;
+}
+
+.containerInformation section {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
