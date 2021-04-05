@@ -17,7 +17,7 @@ const Invited: React.FC = () => {
         <title>Convite para {invited}!</title>
       </Head>
         <h1>
-          Para {invited}
+          Convite para {invited}
         </h1>
         <Invit />
         <Rsvp />

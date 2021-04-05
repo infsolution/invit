@@ -1,6 +1,6 @@
 const theme = {
 colors:{
-    background: '#E3F8D2',
+    background: '#f5a5a5',
     text:'#121214',
     primary:'#0000FF'
 }
@@ -8,3 +8,4 @@ colors:{
 
 
 export default theme
+.65

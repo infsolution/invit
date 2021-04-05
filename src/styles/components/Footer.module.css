@@ -1,0 +1,31 @@
+.containerFooter {
+    flex: 1;
+    display: grid;
+    background: #FFFFFF;
+    width: 70rem;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
+    margin-top: 2rem;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+}
+
+.containerFooter section {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+}
+.containerFooter section div ul{
+    list-style: none;
+}
+.containerFooter section div ul li{
+    margin: 0.6rem;
+}
+.containerFooter section div ul li a {
+    text-decoration: none;
+    color:#7e8181;
+}
+.containerFooter strong{
+    margin: 1rem;
+}

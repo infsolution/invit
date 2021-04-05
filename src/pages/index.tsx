@@ -5,7 +5,7 @@ const Home: React.FC = () => {
   return (
     <div className={styles.container} >
       <Head>
-        <title>Create Next App</title>
+        <title>Invit - Sua Fábrica de Festas</title>
       </Head>
         <h1 >
           Invit
