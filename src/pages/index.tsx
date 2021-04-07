@@ -5,10 +5,10 @@ const Home: React.FC = () => {
   return (
     <div className={styles.container} >
       <Head>
-        <title>Invit - Sua Fábrica de Festas</title>
+        <title>ConFesta - Sua Fábrica de Festas</title>
       </Head>
         <h1 >
-          Invit
+          ConFesta
         </h1>
         <p>Sua fabrica de festas!</p>
     </div>

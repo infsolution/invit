@@ -2,7 +2,7 @@ import styles from '../styles/components/Message.module.css'
 export function Message(){
     const  sendMessage = event =>{
         event.preventDefault()
-        alert('Sou eu')
+        alert(event.target.name.value)
     }
     return(
         <div className={styles.containerMessage}>

@@ -1,6 +1,9 @@
 import styles from '../styles/components/Information.module.css'
-
+import { useRef } from 'react';
 export function Information(){
+    const api_key =  process.env.GOOGLE_API_KEY
+    const palce = 'place_id:ChIJZ5XRTng3jgcRhlHxGhe8E60'
+    const url_google_maps = `https://www.google.com/maps/embed/v1/place?q=${palce}&key=${api_key}`
     return(
         <div className={styles.containerInformation}>
             <section>
@@ -12,8 +15,8 @@ export function Information(){
                     </div>
                     <div>
                         <strong>Local</strong>
-                        <p>Rua cento e três Nº 489 Parque União Timon - MA</p>
-                        <iframe className={styles.mapInformation} src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" />
+                        <p>Rua Firmino Gonçalves Perreira Nº 144, Centro Timon - MA</p>
+                        <iframe className={styles.mapInformation} src={url_google_maps} />
                     </div>
                 </div>
                 <div>

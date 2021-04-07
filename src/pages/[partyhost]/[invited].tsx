@@ -8,6 +8,7 @@ import {Information} from  '../../components/Information'
 import {Message} from  '../../components/Message'
 import {Galery} from  '../../components/Galery'
 import {Footer} from '../../components/Footer'
+import {Navbar} from '../../components/Navbar'
 const Invited: React.FC = () => {
     const router = useRouter()
     const { invited } = router.query
@@ -16,9 +17,11 @@ const Invited: React.FC = () => {
       <Head>
         <title>Convite para {invited}!</title>
       </Head>
+        <Navbar />
         <h1>
           Convite para {invited}
         </h1>
+
         <Invit />
         <Rsvp />
         <Information/>

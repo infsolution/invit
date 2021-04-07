@@ -24,7 +24,7 @@ export function Footer(){
                 </ul>
             </div>
             <div>
-                <strong>Sobre Invite</strong>
+                <strong>Sobre o ConFesta</strong>
                 <ul>
                     <li><a href="#">Informações </a></li>
                     <li><a href="#">Informações </a></li>
@@ -42,7 +42,7 @@ export function Footer(){
                 </ul>
             </div>
             </section>
-            <strong> &copy; {date.getFullYear()} Invit - Todos os dirteitos reservados </strong>
+            <strong> &copy; {date.getFullYear()} ConFesta - Todos os dirteitos reservados </strong>
         </div>
     )
 }

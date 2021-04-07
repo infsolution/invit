@@ -1,6 +1,14 @@
 import styles from '../styles/components/Rsvp.module.css'
 
 export function Rsvp (){
+    const  confirm = event =>{
+        event.preventDefault()
+        alert('Eu vou')
+    }
+    const  notConfirm = event =>{
+        event.preventDefault()
+        alert('Não vou')
+    }
 return(
     <div>
         <div className={styles.rsvpContainer}>
@@ -15,8 +23,8 @@ return(
         </div>
 
         <div className={styles.rsvpButton}>
-            <button >Eu vou =)</button>
-            <button >Não vou =(</button>
+            <button onClick={confirm}>Eu vou =)</button>
+            <button onClick={notConfirm}>Não vou =(</button>
         </div>
     </div>
 )
