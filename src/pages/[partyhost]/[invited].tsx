@@ -9,26 +9,21 @@ import {Message} from  '../../components/Message'
 import {Galery} from  '../../components/Galery'
 import {Footer} from '../../components/Footer'
 import {Navbar} from '../../components/Navbar'
+import {Invitdesktop} from '../../components/Invitdesktop'
 const Invited: React.FC = () => {
     const router = useRouter()
     const { invited } = router.query
   return (
     <div className={styles.container} >
-      <Head>
-        <title>Convite para {invited}!</title>
-      </Head>
+        <Head>
+            <title>Convite para {invited}!</title>
+        </Head>
         <Navbar />
         <h1>
           Convite para {invited}
         </h1>
-
-        <Invit />
-        <Rsvp />
-        <Information/>
-        <Message />
-        <Galery />
+        <Invitdesktop />
         <Footer />
-
     </div>
   )
 }
