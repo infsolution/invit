@@ -5,9 +5,10 @@
     flex-direction: column;
 }
 .container > h1{
-    font-size: 54px;
+    font-size: 2.5rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
+    text-align: center;
 }
 .container > p{
     margin-top: 24px;

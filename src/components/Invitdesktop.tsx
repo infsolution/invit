@@ -1,4 +1,3 @@
-import  styles  from '../../../styles/pages/Invited.module.css'
 import {Invit} from '../components/Invit'
 import {Rsvp} from  '../components/Rsvp'
 import {Information} from  '../components/Information'

@@ -6,6 +6,7 @@ const Home: React.FC = () => {
     <div className={styles.container} >
       <Head>
         <title>ConFesta - Sua Fábrica de Festas</title>
+        <meta name="viewport"content="width=device-width, initial-scale=1.0" />
       </Head>
         <h1 >
           ConFesta
