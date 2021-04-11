@@ -1,17 +1,15 @@
 .navbarContainer{
-    display: inline-flex;
+    display: flex;
     width: 100%;
-    height: 4rem;
     border: 1px;
     background: #f68b8b;
     box-shadow: 0 10px 0 rgba(0,0,0,0.05);
 }
 
 .navbarContainer div{
- align-content: center;
+ text-align: left;
 }
 .navbarContainer a{
-    margin-left: 8rem;
     text-decoration: none;
     color: #ffffff;
     font-size: 2rem;

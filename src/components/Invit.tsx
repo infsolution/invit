@@ -1,11 +1,37 @@
+import React, { useState } from 'react';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import  styles from '../styles/components/Invit.module.css'
+import {Grid, Row,Col} from 'react-styled-flexboxgrid'
+import 'bootstrap/dist/css/bootstrap.min.css';
+export function Invit({name}){
 
-export function Invit(){
+      const [modal, setModal] = useState(false);
+
+      const toggle = () => setModal(!modal);
     return(
-        <div className={styles.invitContainer}>
+        <Grid>
             <div>
-                <img src="https://i.pinimg.com/originals/5d/1d/62/5d1d6296e960a71416e8d3d2a229e3c1.jpg" alt=""/>
+                <Modal isOpen={modal} toggle={toggle} className={styles.invitContainer}>
+                <ModalHeader toggle={toggle}>Seu convite {name}</ModalHeader>
+                    <ModalBody>
+                    <img src="/convite-gloria.jpg" alt="" width="340px" height="530px"/>
+                    </ModalBody>
+                </Modal>
             </div>
-        </div>
+            <Row>
+                <Col xs={12} sm={12} md={12} lg={12}>
+                <h1>Convite para {name}</h1>
+                </Col>
+            </Row>
+            <Row>
+                <Col xs={12} sm={12} md={12} lg={12}>
+                    <div className={styles.invitContainer}>
+                        <div>
+                            <img src="/convite-gloria.jpg" alt="" onClick={toggle}/>
+                        </div>
+                    </div>
+                    </Col>
+            </Row>
+        </Grid>
     )
 }

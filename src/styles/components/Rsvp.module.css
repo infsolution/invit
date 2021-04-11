@@ -1,8 +1,7 @@
 .rsvpContainer{
     display: flex;
     font-weight: 600;
-    background: #FFFFFF;
-    width: 50rem;
+    width: 100%;
     box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
     text-align: center;
 }
@@ -12,10 +11,7 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    font-size: 4rem;
-
-
-
+    font-size: 2.5rem;
 }
 
 .rsvpContainer > div > span{
@@ -24,8 +20,9 @@
 .rsvpButton{
     display: flex;
     align-items: center;
-    background: #FFFFFF;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: solid #FFFFFF;
+    border-radius: 5%;
 }
 
 .rsvpButton > button{
@@ -36,7 +33,7 @@
     align-items: center;
     justify-content: center;
     border: 0;
-    border-radius: 2%;
+    border-radius: 5%;
     color: #FFFFFF;
     font-weight: 400;
     transition: background-color 0.2s;
@@ -54,4 +51,10 @@
 .rsvpButton > button:hover{
     background: #00fbffb7;
     color: black;
+}
+
+.rsvpButton img{
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;
 }

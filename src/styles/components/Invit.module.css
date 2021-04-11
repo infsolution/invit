@@ -1,19 +1,22 @@
 .invitContainer{
     display: flex;
-    align-items: center;
-    margin-bottom: 2rem;
-}
-.invitContainer > div{
-    flex: 1;
-    display: flex;
-    justify-content: space-evenly;
-    background: #FFFFFF;
     box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
     border-radius: 5%;
+    align-items: center;
+    margin-bottom: 2rem;
+    align-content: center;
 }
-.invitContainer > div > img {
-    width: 70rem;
-    height: 50rem;
+
+.invitContainer div{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.invitContainer > div> img {
+    width: 20rem;
+    height: 30rem;
+    border: solid #ffffff 0.5rem;
     border-radius: 5%;
 }
 
