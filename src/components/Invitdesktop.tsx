@@ -7,7 +7,6 @@ import {Galery} from  '../components/Galery'
 export function Invitdesktop(){
   return (
     <div >
-        <Invit />
         <Rsvp />
         <Information />
         <Message />

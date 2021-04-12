@@ -1,6 +1,10 @@
 import React from 'react'
 import Head from 'next/head'
 import  styles  from '../styles/pages/Home.module.css'
+import { Invit } from '../components/Invit'
+
+
+
 const Home: React.FC = () => {
   return (
     <div className={styles.container} >
@@ -9,9 +13,9 @@ const Home: React.FC = () => {
         <meta name="viewport"content="width=device-width, initial-scale=1.0" />
       </Head>
         <h1 >
-          ConFesta
+          ConFesta {}
         </h1>
-        <p>Sua fabrica de festas!</p>
+        <p></p>
     </div>
   )
 }

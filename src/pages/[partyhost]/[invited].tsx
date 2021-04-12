@@ -12,6 +12,9 @@ import {Navbar} from '../../components/Navbar'
 import {Invitdesktop} from '../../components/Invitdesktop'
 import { useMediaQuery } from 'react-responsive'
 import {Grid, Row,Col} from 'react-styled-flexboxgrid'
+import { GetStaticProps } from 'next'
+
+
 
 const Invited: React.FC = () => {
     const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1224px)'})
