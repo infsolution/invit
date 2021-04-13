@@ -12,11 +12,10 @@ import {Navbar} from '../../components/Navbar'
 import {Invitdesktop} from '../../components/Invitdesktop'
 import { useMediaQuery } from 'react-responsive'
 import {Grid, Row,Col} from 'react-styled-flexboxgrid'
-import { GetStaticProps } from 'next'
+import { InferGetStaticPropsType } from 'next'
 
 
-
-const Invited: React.FC = () => {
+function Invited({invite}:InferGetStaticPropsType<typeof getStaticPaths>) {
     const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1224px)'})
     const isBigScreen = useMediaQuery({ query: '(min-width: 1824px)' })
     const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
@@ -34,7 +33,7 @@ const Invited: React.FC = () => {
         <Navbar />
         <Invit name={invited}/>
         <Rsvp />
-        <Information />
+        <Information local={invite.party.local}/>
         <Galery/>
         <Message />
         <Footer/>
@@ -43,3 +42,16 @@ const Invited: React.FC = () => {
 }
 
 export default Invited
+
+export const getStaticPaths = async()=>{
+    const res = await fetch('https://viacep.com.br/ws/65631370/json')
+    const invite = await res.json()
+    return {
+
+        paths:[
+            'gloria/valda-e-familia',
+            {params: {id:1, slug:'valda-e-familia'}}
+        ],
+        fallback: true,
+    }
+}

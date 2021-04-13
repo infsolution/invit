@@ -1,7 +1,7 @@
 import styles from '../styles/components/Information.module.css'
 import { useRef } from 'react';
 import {Grid, Row,Col} from 'react-styled-flexboxgrid'
-export function Information(){
+export function Information({local}){
     const api_key =  process.env.GOOGLE_API_KEY
     const palce = 'place_id:ChIJZ5XRTng3jgcRhlHxGhe8E60'
     const url_google_maps = `https://www.google.com/maps/embed/v1/place?q=${palce}&key=${api_key}`
@@ -25,6 +25,7 @@ export function Information(){
             <Row >
                <Col xs={12} sm={12} md={6} lg={6} >
                     <strong>Local</strong>
+                    <p>{local}</p>
                     <p>Rua Firmino Gonçalves Perreira Nº 144, Centro Timon - MA</p>
                     <iframe className={styles.mapInformation} src={url_google_maps} />
                 </Col>
