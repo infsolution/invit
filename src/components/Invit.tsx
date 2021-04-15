@@ -3,7 +3,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import  styles from '../styles/components/Invit.module.css'
 import {Grid, Row,Col} from 'react-styled-flexboxgrid'
 import 'bootstrap/dist/css/bootstrap.min.css';
-export function Invit({name}){
+export function Invit({data}){
 
       const [modal, setModal] = useState(false);
 
@@ -12,7 +12,7 @@ export function Invit({name}){
         <Grid>
             <div>
                 <Modal isOpen={modal} toggle={toggle} className={styles.invitContainer}>
-                <ModalHeader toggle={toggle}>Seu convite {name}</ModalHeader>
+                <ModalHeader toggle={toggle}>Seu convite {data.invited.name}</ModalHeader>
                     <ModalBody>
                     <img src="/convite-gloria.jpg" alt="" width="340px" height="530px"/>
                     </ModalBody>
@@ -20,7 +20,7 @@ export function Invit({name}){
             </div>
             <Row>
                 <Col xs={12} sm={12} md={12} lg={12}>
-                <h1>Convite para {name}</h1>
+                <h1>Convite para {data.invited.name}</h1>
                 </Col>
             </Row>
             <Row>

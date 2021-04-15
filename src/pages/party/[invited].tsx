@@ -15,7 +15,7 @@ import {Grid, Row,Col} from 'react-styled-flexboxgrid'
 import { InferGetStaticPropsType } from 'next'
 
 
-function Invited({invite}:InferGetStaticPropsType<typeof getStaticPaths>) {
+function Invited({data}:InferGetStaticPropsType<typeof getServerSideProps>) {
     const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1224px)'})
     const isBigScreen = useMediaQuery({ query: '(min-width: 1824px)' })
     const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
@@ -28,12 +28,12 @@ function Invited({invite}:InferGetStaticPropsType<typeof getStaticPaths>) {
     <div className={styles.containerInvited} >
         <Head>
             <meta name="viewport"content="width=device-width, initial-scale=1.0" />
-            <title>Convite para {invited}!</title>
+            <title>Convite para {data.invited.name}!</title>
         </Head>
         <Navbar />
-        <Invit name={invited}/>
+        <Invit data={data}/>
         <Rsvp />
-        <Information local={invite.party.local}/>
+        <Information data={data}/>
         <Galery/>
         <Message />
         <Footer/>
@@ -43,15 +43,17 @@ function Invited({invite}:InferGetStaticPropsType<typeof getStaticPaths>) {
 
 export default Invited
 
-export const getStaticPaths = async()=>{
-    const res = await fetch('https://viacep.com.br/ws/65631370/json')
-    const invite = await res.json()
+  export async function getServerSideProps({params}){
+    const res = await fetch(`http://localhost:3333/v1/party/${params.invited}`)
+    const invited = await res.json()
+    if (invited.data===null) {
+        return {
+          notFound: true,
+        }
+      }
     return {
-
-        paths:[
-            'gloria/valda-e-familia',
-            {params: {id:1, slug:'valda-e-familia'}}
-        ],
-        fallback: true,
+        props:{
+            data:invited.data
+        }
     }
-}
+  }

@@ -1,7 +1,7 @@
 import styles from '../styles/components/Information.module.css'
 import { useRef } from 'react';
 import {Grid, Row,Col} from 'react-styled-flexboxgrid'
-export function Information({local}){
+export function Information({data}){
     const api_key =  process.env.GOOGLE_API_KEY
     const palce = 'place_id:ChIJZ5XRTng3jgcRhlHxGhe8E60'
     const url_google_maps = `https://www.google.com/maps/embed/v1/place?q=${palce}&key=${api_key}`
@@ -13,7 +13,7 @@ export function Information({local}){
                <Col xs={12} sm={12} md={6} lg={6}>
                     <strong>Dia da festa</strong>
                     <p>Sábado</p>
-                    <p>31 de julho 2021 às 20:00</p>
+                    <p>{data.party.date} às {data.party.hour}</p>
                 </Col>
                 <Col xs={12} sm={12} md={6} lg={6}>
                     <div>
@@ -25,17 +25,17 @@ export function Information({local}){
             <Row >
                <Col xs={12} sm={12} md={6} lg={6} >
                     <strong>Local</strong>
-                    <p>{local}</p>
-                    <p>Rua Firmino Gonçalves Perreira Nº 144, Centro Timon - MA</p>
+                    <p>{data.party.local}</p>
+                    <p>{data.address.street}, {data.address.district} - {data.address.city}</p>
                     <iframe className={styles.mapInformation} src={url_google_maps} />
                 </Col>
                 <Col xs={12} sm={12} md={6} lg={6} >
                 <strong>Presentes</strong>
-                    <p>Nossas sugestões de presentes, em loja física, estão disponíveis na loja WeddingX, Brasília-DF.</p>
-                    <p>Nossas sugestões de presentes virtuais estão disponíveis online, no botão a seguir:</p>
+                    <p>Nossas sugestões de presentes, em loja física, estão disponíveis na {data.party.present_store}.</p>
+                    <p>Nossas sugestões de presentes virtuais estão disponíveis em, no botão a seguir:</p>
                     <strong>Trage</strong>
-                    <p>Passeio Completo.</p>
-                    <strong>Mensagem da aniversariante</strong>
+                    <p>{data.party.costume}</p>
+                     <strong>Mensagem da aniversariante</strong>
                     <p>Ficarei muito feliz com a sua presença</p>
                 </Col>
             </Row>
