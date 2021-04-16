@@ -14,7 +14,7 @@ export function Invit({data}){
                 <Modal isOpen={modal} toggle={toggle} className={styles.invitContainer}>
                 <ModalHeader toggle={toggle}>Seu convite {data.invited.name}</ModalHeader>
                     <ModalBody>
-                    <img src="/convite-gloria.jpg" alt="" width="340px" height="530px"/>
+                    <img src={data.party.invite_path_image} alt="" width="340px" height="530px"/>
                     </ModalBody>
                 </Modal>
             </div>
@@ -27,7 +27,7 @@ export function Invit({data}){
                 <Col xs={12} sm={12} md={12} lg={12}>
                     <div className={styles.invitContainer}>
                         <div>
-                            <img src="/convite-gloria.jpg" alt="" onClick={toggle}/>
+                            <img src={data.party.invite_path_image} alt="" onClick={toggle}/>
                         </div>
                     </div>
                     </Col>

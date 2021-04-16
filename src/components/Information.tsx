@@ -32,7 +32,8 @@ export function Information({data}){
                 <Col xs={12} sm={12} md={6} lg={6} >
                 <strong>Presentes</strong>
                     <p>Nossas sugestões de presentes, em loja física, estão disponíveis na {data.party.present_store}.</p>
-                    <p>Nossas sugestões de presentes virtuais estão disponíveis em, no botão a seguir:</p>
+                    <p>Nossas sugestões de presentes virtuais estão disponíveis no link a seguir:</p>
+                    <p>Loja</p>
                     <strong>Trage</strong>
                     <p>{data.party.costume}</p>
                      <strong>Mensagem da aniversariante</strong>
