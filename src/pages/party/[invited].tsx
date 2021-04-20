@@ -5,7 +5,6 @@ import  styles  from '../../styles/pages/Invited.module.css'
 import {Invit} from '../../components/Invit'
 import {Rsvp} from  '../../components/Rsvp'
 import {Information} from  '../../components/Information'
-import {Message} from  '../../components/Message'
 import {Galery} from  '../../components/Galery'
 import {Footer} from '../../components/Footer'
 import {Navbar} from '../../components/Navbar'
@@ -13,6 +12,7 @@ import {Invitdesktop} from '../../components/Invitdesktop'
 import { useMediaQuery } from 'react-responsive'
 import {Grid, Row,Col} from 'react-styled-flexboxgrid'
 import { InferGetStaticPropsType } from 'next'
+import Address from '../address'
 
 
 function Invited({data}:InferGetStaticPropsType<typeof getServerSideProps>) {
@@ -34,8 +34,7 @@ function Invited({data}:InferGetStaticPropsType<typeof getServerSideProps>) {
         <Invit data={data}/>
         <Rsvp id={invited}/>
         <Information data={data}/>
-        <Galery/>
-        <Message />
+        <Galery galery={data.galery}/>
         <Footer/>
     </div>
   )
@@ -44,7 +43,8 @@ function Invited({data}:InferGetStaticPropsType<typeof getServerSideProps>) {
 export default Invited
 
   export async function getServerSideProps({params}){
-    const res = await fetch(`http://localhost:3333/v1/party/${params.invited}`)
+    //const res = await fetch(`http://localhost:3333/v1/party/${params.invited}`)
+    const res = await fetch(`${Address.remote}party/${params.invited}`)
     const invited = await res.json()
     if (invited.data===null) {
         return {

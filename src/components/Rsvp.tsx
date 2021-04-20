@@ -1,11 +1,12 @@
 import styles from '../styles/components/Rsvp.module.css'
 import {Grid, Row,Col} from 'react-styled-flexboxgrid'
+import  Address  from '../pages/address'
 export function Rsvp ({id}){
     const  confirm = async event =>{
         event.preventDefault()
 
         const res = await fetch(
-            `http://localhost:3333/v1/invited/${event.target.name}`,{
+            `${Address.remote}invited/${event.target.name}`,{
             body: JSON.stringify({
                 confirm: event.target.value
             }),
@@ -16,6 +17,7 @@ export function Rsvp ({id}){
             }
         )
         const result = await res.json()
+        console.log(res)
         if(result.result){
             alert("Sua presença foi confirmada!")
         }else{
