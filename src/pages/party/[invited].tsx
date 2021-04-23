@@ -10,7 +10,6 @@ import {Footer} from '../../components/Footer'
 import {Navbar} from '../../components/Navbar'
 import { useMediaQuery } from 'react-responsive'
 import { InferGetStaticPropsType } from 'next'
-const address = require('../address')
 
 
 function Invited({data, invited_name}:InferGetStaticPropsType<typeof getServerSideProps>) {
@@ -41,8 +40,7 @@ function Invited({data, invited_name}:InferGetStaticPropsType<typeof getServerSi
 export default Invited
 
   export async function getServerSideProps({params}){
-    const res = await fetch(`${address.remote}party/${params.invited}`)
-    //const res = await fetch(`http://api.confesta.com.br/v1/party/${params.invited}`)
+    const res = await fetch(`http://api.confesta.com.br/v1/party/${params.invited}`)
     const invited = await res.json()
     if (invited.data===null) {
         return {

@@ -1,12 +1,11 @@
 import styles from '../styles/components/Rsvp.module.css'
 import {Grid, Row,Col} from 'react-styled-flexboxgrid'
-import  Address  from '../pages/address'
 export function Rsvp ({data}){
     const  confirm = async event =>{
         event.preventDefault()
 
         const res = await fetch(
-            `${Address.remote}invited/${event.target.name}`,{
+            `http://api.confesta.com.br/v1/invited/${event.target.name}`,{
             body: JSON.stringify({
                 confirm: event.target.value
             }),
