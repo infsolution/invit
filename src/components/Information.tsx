@@ -17,8 +17,9 @@ export function Information({data}){
                 </Col>
                 <Col xs={12} sm={12} md={6} lg={6}>
                     <div>
-                        <strong>Exibíveis</strong>
-                        <p>Após confirmar sua presença, você receberá o QR-Code para ter acessoa ao evento.</p>
+                        <strong>Exibível</strong>
+                        {data.qrcode && <p><img src={data.qrcode} /></p> }
+                        {!data.qrcode && <p>Após confirmar sua presença, você receberá o QR-Code para ter acessoa ao evento.</p>}
                     </div>
                 </Col>
             </Row>
@@ -34,7 +35,7 @@ export function Information({data}){
                     <p>Nossas sugestões de presentes, em loja física, estão disponíveis na {data.party.present_store}.</p>
                     <p>Nossas sugestões de presentes virtuais estão disponíveis no link a seguir:</p>
                     <p>Loja</p>
-                    <strong>Trage</strong>
+                    <strong>Traje</strong>
                     <p>{data.party.costume}</p>
                      <strong>Mensagem da aniversariante</strong>
                     <p>Ficarei muito feliz com a sua presença</p>

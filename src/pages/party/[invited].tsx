@@ -32,7 +32,7 @@ function Invited({data}:InferGetStaticPropsType<typeof getServerSideProps>) {
         </Head>
         <Navbar />
         <Invit data={data}/>
-        <Rsvp id={invited}/>
+        {data.invited.confirm != 'VOU' && <Rsvp id={invited}/>}
         <Information data={data}/>
         <Galery data={data}/>
         <Footer/>
@@ -43,7 +43,7 @@ function Invited({data}:InferGetStaticPropsType<typeof getServerSideProps>) {
 export default Invited
 
   export async function getServerSideProps({params}){
-    const res = await fetch(`${Address.local}party/${params.invited}`)
+    const res = await fetch(`${Address.remote}party/${params.invited}`)
     const invited = await res.json()
     if (invited.data===null) {
         return {
