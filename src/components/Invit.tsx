@@ -4,7 +4,7 @@ import  styles from '../styles/components/Invit.module.css'
 import {Grid, Row,Col} from 'react-styled-flexboxgrid'
 import 'bootstrap/dist/css/bootstrap.min.css';
 export function Invit({data}){
-
+    //
       const [modal, setModal] = useState(false);
 
       const toggle = () => setModal(!modal);
