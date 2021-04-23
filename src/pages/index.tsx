@@ -12,7 +12,7 @@ function Home ({cep}:InferGetStaticPropsType<typeof getStaticProps>){
         <meta name="viewport"content="width=device-width, initial-scale=1.0" />
       </Head>
         <h1 >
-          ConFesta {cep.logradouro}
+          ConFesta
         </h1>
         <p></p>
 

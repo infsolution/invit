@@ -15,7 +15,6 @@ const Host: React.FC = () => {
         <h1 >
           Bem Vinda {partyhost}!
         </h1>
-        <Invit />
         <p>O Site do Taurus</p>
     </div>
   )
