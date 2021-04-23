@@ -13,12 +13,12 @@ import { InferGetStaticPropsType } from 'next'
 import Address from '../address'
 
 
-function Invited({data}:InferGetStaticPropsType<typeof getServerSideProps>) {
+function Invited({data, invited_name}:InferGetStaticPropsType<typeof getServerSideProps>) {
     const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1224px)'})
     const isBigScreen = useMediaQuery({ query: '(min-width: 1824px)' })
     const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
     const router = useRouter()
-    const { invited } = router.query
+    //const { invited } = router.query
     const api_key =  process.env.GOOGLE_API_KEY
     const palce = 'place_id:ChIJZ5XRTng3jgcRhlHxGhe8E60'
     const url_google_maps = `https://www.google.com/maps/embed/v1/place?q=${palce}&key=${api_key}`
@@ -26,7 +26,7 @@ function Invited({data}:InferGetStaticPropsType<typeof getServerSideProps>) {
     <div className={styles.containerInvited} >
         <Head>
             <meta name="viewport"content="width=device-width, initial-scale=1.0" />
-            <title>Convite para {data.invited.name}!</title>
+            <title>Convite para {invited_name}!</title>
         </Head>
         <Navbar />
         <Invit data={data}/>
@@ -50,7 +50,8 @@ export default Invited
       }
     return {
         props:{
-            data:invited.data
+            data:invited.data,
+            invited_name:invited.data.invited.name
         }
     }
   }
