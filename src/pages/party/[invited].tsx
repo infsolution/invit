@@ -32,7 +32,7 @@ function Invited({data}:InferGetStaticPropsType<typeof getServerSideProps>) {
         </Head>
         <Navbar />
         <Invit data={data}/>
-        {data.invited.confirm != 'VOU' && <Rsvp id={invited}/>}
+        <Rsvp data={data}/>
         <Information data={data}/>
         <Galery data={data}/>
         <Footer/>

@@ -1,6 +1,7 @@
 import styles from '../styles/components/Information.module.css'
 import { useRef } from 'react';
 import {Grid, Row,Col} from 'react-styled-flexboxgrid'
+const datetools = require('../utils/datestools')
 export function Information({data}){
     const api_key =  process.env.GOOGLE_API_KEY
     const palce = 'place_id:ChIJZ5XRTng3jgcRhlHxGhe8E60'
@@ -12,14 +13,17 @@ export function Information({data}){
             <Row >
                <Col xs={12} sm={12} md={6} lg={6}>
                     <strong>Dia da festa</strong>
-                    <p>Sábado</p>
+                    <p>{datetools.setDay(5)}</p>
                     <p>{data.party.date} às {data.party.hour}</p>
                 </Col>
                 <Col xs={12} sm={12} md={6} lg={6}>
                     <div>
                         <strong>Exibível</strong>
-                        {data.qrcode && <p><img src={data.qrcode} /></p> }
-                        {!data.qrcode && <p>Após confirmar sua presença, você receberá o QR-Code para ter acessoa ao evento.</p>}
+                        {data.qrcode && <div className={styles.qrcodeContainer}>
+                            <p>Este é o seu exibível, baixe-o para o seu smartphone e apresente na entrada do envento!</p>
+                        <img src={data.qrcode} />
+                        </div>}
+                        {!data.qrcode && <p>Confirme sua presença para receber QR-Code exibível de acesso ao evento.</p>}
                     </div>
                 </Col>
             </Row>
@@ -32,9 +36,16 @@ export function Information({data}){
                 </Col>
                 <Col xs={12} sm={12} md={6} lg={6} >
                 <strong>Presentes</strong>
-                    <p>Nossas sugestões de presentes, em loja física, estão disponíveis na {data.party.present_store}.</p>
-                    <p>Nossas sugestões de presentes virtuais estão disponíveis no link a seguir:</p>
-                    <p>Loja</p>
+                    {
+                     data.party.present_store &&   <p>Nossas sugestões de presentes, em loja física, estão disponíveis na {data.party.present_store}.</p>
+                    }
+                    {data.presents.length > 0
+                        &&
+                        <div>
+                        <p>Nossas sugestões de presentes virtuais estão disponíveis no link a seguir:</p>
+                        <p>Loja</p>
+                        </div>
+                    }
                     <strong>Traje</strong>
                     <p>{data.party.costume}</p>
                      <strong>Mensagem da aniversariante</strong>

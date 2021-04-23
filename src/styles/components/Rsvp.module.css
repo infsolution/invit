@@ -21,8 +21,6 @@
     display: flex;
     align-items: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    border: solid #FFFFFF;
-    border-radius: 5%;
 }
 
 .rsvpButton > button{
@@ -39,15 +37,17 @@
     transition: background-color 0.2s;
 }
 
-.rsvpButton > button:first-child{
-    margin: 1rem 0.2rem 1rem 1rem;
+
+.buttonConfirm{
+    margin: 1rem 0.5rem 1rem 0.5rem;
     background: #4747e6;
 }
 
-.rsvpButton > button:last-child{
-    margin: 1rem 1rem 1rem 0.2rem;
+.buttonNotConfirm{
+    margin: 1rem 0.5rem 1rem 0.5rem;
     background: #e94949;
 }
+
 .rsvpButton > button:hover{
     background: #00fbffb7;
     color: black;
