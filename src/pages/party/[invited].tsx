@@ -16,6 +16,7 @@ function Invited({data, invited_name}:InferGetStaticPropsType<typeof getServerSi
     const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1224px)'})
     const isBigScreen = useMediaQuery({ query: '(min-width: 1824px)' })
     const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
+    const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
     const router = useRouter()
     //const { invited } = router.query
     const api_key =  process.env.GOOGLE_API_KEY
@@ -27,7 +28,7 @@ function Invited({data, invited_name}:InferGetStaticPropsType<typeof getServerSi
             <meta name="viewport"content="width=device-width, initial-scale=1.0" />
             <title>Convite para {invited_name}!</title>
         </Head>
-        <Navbar />
+        <Navbar/>
         <Invit data={data}/>
         <Rsvp data={data}/>
         <Information data={data}/>
