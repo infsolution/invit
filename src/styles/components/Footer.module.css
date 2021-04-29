@@ -2,23 +2,27 @@
     flex: 1;
     display: grid;
     width: 100%;
+    background: #0a0a0a;
     box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
     margin-top: 2rem;
     text-align: center;
     align-content: center;
     align-items: center;
+    padding: 1rem;
 }
 
 .containerFooter div ul{
     list-style: none;
+    margin-top: 1rem;
 }
 .containerFooter div ul li{
     margin: 0.6rem;
 }
 .containerFooter div ul li a {
     text-decoration: none;
-    color:#5a3eb6;
+    color:#FFFFFF;
 }
 .containerFooter strong{
     margin: 1rem;
+    color: #FFFFFF;
 }

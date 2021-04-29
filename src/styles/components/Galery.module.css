@@ -8,9 +8,10 @@
 .containerGaley h2 {
     margin: 1rem;
 }
-.containerGaley img {
+.containerGalery img {
     width: 20rem;
     height: 13rem;
     border: solid #FFFFFF 0.5rem;
     border-radius: 5%;
+    margin-top:0.5rem;
 }

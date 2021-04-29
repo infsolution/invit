@@ -3,7 +3,7 @@ import {Grid, Row,Col} from 'react-styled-flexboxgrid'
 export function Galery({data}){
 
     return(
-        <div className={styles.containerGaley}>
+        <div className={styles.containerGalery}>
             <h2>Minhas fotos</h2>
             <Grid>
                 <Row>

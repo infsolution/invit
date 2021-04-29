@@ -28,7 +28,6 @@ function Invited({data, invited_name}:InferGetStaticPropsType<typeof getServerSi
             <meta name="viewport"content="width=device-width, initial-scale=1.0" />
             <title>Convite para {invited_name}!</title>
         </Head>
-        <Navbar/>
         <Invit data={data}/>
         <Rsvp data={data}/>
         <Information data={data}/>

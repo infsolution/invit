@@ -1,19 +1,26 @@
 .navbarContainer{
-    display: flex;
     width: 100%;
     border: 1px;
     background: #f68b8b;
     box-shadow: 0 10px 0 rgba(0,0,0,0.05);
 }
 
-.navbarContainer div{
+.navbarContainer div {
  text-align: left;
+ align-content: center;
+ align-items: center;
 }
+
 .navbarContainer a{
     text-decoration: none;
-    color: #ffffff;
-    font-size: 2rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    color: #0000ff;
+    font-size: 1rem;
+    margin: 2rem;
    }
 
+.linkHome a{
+    color: #ffffff;
+    font-size: 2rem;
+    margin: 2rem;
+    cursor:pointer;
+}
