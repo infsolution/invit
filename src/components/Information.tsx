@@ -6,6 +6,9 @@ export function Information({data}){
     const api_key =  process.env.GOOGLE_API_KEY
     const palce = 'place_id:ChIJZ5XRTng3jgcRhlHxGhe8E60'
     const url_google_maps = `https://www.google.com/maps/embed/v1/place?q=${palce}&key=${api_key}`
+    const day = data.party.date.slice(8,10)
+    const mounth = data.party.date.slice(5,7)
+    const year = data.party.date.slice(0,4)
     return(
         <div className={styles.containerInformation}>
             <div>
@@ -13,8 +16,9 @@ export function Information({data}){
             <Row >
                <Col xs={12} sm={12} md={6} lg={6}>
                     <strong>Dia da festa</strong>
-                    <p>{datetools.setDay(5)}</p>
-                    <p>{data.party.date} às {data.party.hour}</p>
+                    <p>{datetools.setDay(data.party.day)}</p>
+                    <p>{`${datetools.setDate(data)} as ${data.party.hour.slice(0,5)} horas`}
+                    </p>
                 </Col>
                 <Col xs={12} sm={12} md={6} lg={6}>
                     <div>

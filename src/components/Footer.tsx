@@ -4,8 +4,19 @@ import Link from 'next/link'
 export function Footer(){
     const date = new Date()
     return (
+        <>
         <div className={styles.containerFooter}>
            <Grid>
+               <Row>
+                    <Col xs={12} sm={12} md={12} lg={12}>
+
+                           <Link href="/">
+                            <h3><a>ConFesta</a></h3>
+                           </Link>
+
+                        <hr/>
+                        </Col>
+               </Row>
                <Row>
                     <Col xs={12} sm={12} md={4} lg={3}>
                         <strong>Crie seu convite online</strong>
@@ -14,7 +25,10 @@ export function Footer(){
                                 <Link href="/"><a>ConFesta</a></Link>
                             </li>
                             <li>
-                                <Link href="/"><a>ConFesta</a></Link>
+                                <Link href="/"><a>Sobre</a></Link>
+                            </li>
+                            <li>
+                                <Link href="/"><a>Termos de uso</a></Link>
                             </li>
                         </ul>
                     </Col>
@@ -23,12 +37,12 @@ export function Footer(){
                         <ul>
                         <li>
                             <Link href="#">
-                                <a >Informações </a>
+                                <a >Parceiros</a>
                             </Link>
                         </li>
                         <li>
                             <Link href="#">
-                                <a >Informações </a>
+                                <a >Clientes</a>
                             </Link>
                         </li>
                         </ul>
@@ -38,12 +52,12 @@ export function Footer(){
                         <ul>
                         <li>
                             <Link href="#">
-                            <a >Informações </a>
+                            <a >Modelos de convites </a>
                             </Link>
                         </li>
                         <li>
                             <Link href="#">
-                                <a >Informações </a>
+                                <a >Depoimentos de clientes</a>
                             </Link>
                         </li>
                         </ul>
@@ -53,19 +67,29 @@ export function Footer(){
                         <ul>
                             <li>
                                 <Link href="#">
-                                <a >Informações </a>
+                                <a >Como ser paceiro</a>
                                 </Link>
                             </li>
                             <li>
                             <Link href="#">
-                                <a >Informações </a>
+                                <a >Cadastrar empresa</a>
                             </Link>
                         </li>
                         </ul>
                     </Col>
                </Row>
            </Grid>
-            <strong> &copy; {date.getFullYear()} ConFesta - Todos os dirteitos reservados </strong>
         </div>
+        <div className={styles.footerCopy}>
+            <Grid>
+            <Row>
+                   <Col xs={12} sm={12} md={12} lg={12}>
+                        <strong> &copy; {date.getUTCFullYear()} ConFesta - Todos os dirteitos reservados </strong>
+                   </Col>
+               </Row>
+            </Grid>
+        </div>
+        </>
+
     )
 }

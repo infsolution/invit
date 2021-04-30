@@ -1,11 +1,13 @@
 import styles from '../styles/components/Rsvp.module.css'
 import {Grid, Row,Col} from 'react-styled-flexboxgrid'
+import variables from '../utils/variables'
+import datetools from '../utils/datestools'
 export function Rsvp ({data}){
     const  confirm = async event =>{
         event.preventDefault()
 
         const res = await fetch(
-            `http://api.confesta.com.br/v1/invited/${event.target.name}`,{
+            `${variables.urls.url}invited/${event.target.name}`,{
             body: JSON.stringify({
                 confirm: event.target.value
             }),
@@ -36,14 +38,14 @@ return(
         <Col xs={12} sm={12} md={12} lg={12}>
         <div className={styles.rsvpContainer}>
             <div>
-            {data.invited.confirmation == 'VOU' && <span>Sua presensa jà foi confirmada!</span>}
+            {data.invited.confirmation == 'VOU' && <span>Sua presensa já foi confirmada!</span>}
             {data.invited.confirmation == 'NÃO VOU' &&  <span>Caso mude de ideia confirme sua presença.</span>}
             {data.invited.confirmation == 'SEM RESPOSTA' &&  <span>Confirme sua presença.</span>}
             </div>
         </div>
         <div className={styles.rsvpContainer}>
         <div >
-            <span>No dia 31/07/2021</span>
+            <span>{`No dia ${datetools.setDate(data)}`}</span>
             </div>
         </div>
         </Col>
