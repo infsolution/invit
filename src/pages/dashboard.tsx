@@ -4,20 +4,53 @@ import { useRouter } from 'next/router'
 import  styles  from '../styles/pages/Dashboard.module.css'
 import {Invit} from '../components/Invit'
 import { Navbar } from '../components/Navbar'
+import { Footer } from '../components/Footer'
 import Link from 'next/link'
-const Host: React.FC = () => {
+import { Inviteds } from '../components/Inviteds'
+import { InferGetStaticPropsType } from 'next'
+import varibles from '../utils/variables'
+
+function Dashboard({parties}:InferGetStaticPropsType<typeof getServerSideProps>){
     const router = useRouter()
     //const { partyhost } = router.query
   return (
     <div className={styles.container} >
-      <Head>
-        <meta name="viewport"content="width=device-width, initial-scale=1.0" />
-        <title>Convites da</title>
-      </Head>
-      <Navbar/>
-
+        <Head>
+            <meta name="viewport"content="width=device-width, initial-scale=1.0" />
+            <title>Convites da</title>
+        </Head>
+        <Navbar />
+        {/*<Inviteds party={parties.party_id}/>*/}
+        {
+        parties.map( party => {
+            return <p>{party.local}</p>
+        })
+        }
+        <Footer />
     </div>
   )
 }
 
-export default Host
+export default Dashboard
+
+
+export async function getServerSideProps(){
+    const res = await fetch(`${varibles.urls.url}client/party`,{
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIsImlhdCI6MTYyMDIxNzczM30.vcWjBo9emm_07Ti_QxdMDOfktwPak0Z0HxUOhn8Lv2U`
+        },
+        method: 'GET'
+    })
+    const parties = await res.json()
+    if (parties===null) {
+        return {
+          notFound: true,
+        }
+      }
+    return{
+        props:{
+            parties:parties.parties
+        }
+    }
+}
