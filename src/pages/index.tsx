@@ -4,6 +4,7 @@ import  styles  from '../styles/pages/Home.module.css'
 import { useMediaQuery } from 'react-responsive'
 import { InferGetStaticPropsType } from 'next'
 import { Footer } from '../components/Footer'
+import { Navbar } from '../components/Navbar'
 
 function Home ({cep}:InferGetStaticPropsType<typeof getStaticProps>){
     const isDesktopOrLaptop = useMediaQuery({
@@ -21,10 +22,7 @@ function Home ({cep}:InferGetStaticPropsType<typeof getStaticProps>){
         <title>ConFesta - Sua Fábrica de Festas</title>
         <meta name="viewport"content="width=device-width, initial-scale=1.0" />
       </Head>
-
-        <h1 >
-          ConFesta
-        </h1>
+        <Navbar/>
         <Footer />
         <p></p>
 
