@@ -3,10 +3,13 @@ import Button from './Button'
 import  Input  from './Input'
 import Link from 'next/link'
 import variables from '../../utils/variables'
+import Cookie from 'js-cookie'
+import { addDays } from 'date-fns'
+import { useRouter } from 'next/router'
 export function FormLogin(){
+    const router = useRouter()
     const login = async event=>{
         event.preventDefault()
-        console.log(event.target.name)
         const res = await fetch(`${variables.urls.url}auth/login`,{
             body: JSON.stringify({
                 email: event.target.email.value,
@@ -18,7 +21,16 @@ export function FormLogin(){
             method: 'POST'
             })
             const result = await res.json()
-            console.log(result)
+            if(result.data.token){
+                Cookie.set('token',result.data.token,{
+                    expires:addDays(new Date(), 1)
+                })
+                router.push('/dashboard')
+            }else{
+                router.push('/login')
+            }
+            
+            
     }
     return(
         <section>
@@ -34,3 +46,5 @@ export function FormLogin(){
         </section>
     )
 }
+
+

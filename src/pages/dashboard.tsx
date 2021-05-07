@@ -9,9 +9,11 @@ import Link from 'next/link'
 import { Inviteds } from '../components/Inviteds'
 import { InferGetStaticPropsType } from 'next'
 import varibles from '../utils/variables'
-
+import  withAuth from '../utils/withAuth' 
+import Cookie from 'js-cookie'
 function Dashboard({parties}:InferGetStaticPropsType<typeof getServerSideProps>){
     const router = useRouter()
+    
     //const { partyhost } = router.query
   return (
     <div className={styles.container} >
@@ -31,19 +33,20 @@ function Dashboard({parties}:InferGetStaticPropsType<typeof getServerSideProps>)
   )
 }
 
-export default Dashboard
+export default withAuth(Dashboard)
 
 
 export async function getServerSideProps(){
+    const token = Cookie.get('token')
     const res = await fetch(`${varibles.urls.url}client/party`,{
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIsImlhdCI6MTYyMDIxNzczM30.vcWjBo9emm_07Ti_QxdMDOfktwPak0Z0HxUOhn8Lv2U`
+            'Authorization': `Bearer ${token}`
         },
         method: 'GET'
     })
     const parties = await res.json()
-    if (parties===null) {
+    if (parties.length == 0) {
         return {
           notFound: true,
         }
@@ -54,3 +57,6 @@ export async function getServerSideProps(){
         }
     }
 }
+
+
+
