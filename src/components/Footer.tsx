@@ -36,12 +36,12 @@ export function Footer(){
                         <strong>Preços</strong>
                         <ul>
                         <li>
-                            <Link href="#">
+                            <Link href="/">
                                 <a >Parceiros</a>
                             </Link>
                         </li>
                         <li>
-                            <Link href="#">
+                            <Link href="/">
                                 <a >Clientes</a>
                             </Link>
                         </li>
@@ -51,12 +51,12 @@ export function Footer(){
                         <strong>Sobre a ConFesta</strong>
                         <ul>
                         <li>
-                            <Link href="#">
+                            <Link href="/">
                             <a >Modelos de convites </a>
                             </Link>
                         </li>
                         <li>
-                            <Link href="#">
+                            <Link href="/">
                                 <a >Depoimentos de clientes</a>
                             </Link>
                         </li>
@@ -66,12 +66,12 @@ export function Footer(){
                         <strong>Seja nosso Paceiro</strong>
                         <ul>
                             <li>
-                                <Link href="#">
+                                <Link href="/">
                                 <a >Como ser paceiro</a>
                                 </Link>
                             </li>
                             <li>
-                            <Link href="#">
+                            <Link href="/">
                                 <a >Cadastrar empresa</a>
                             </Link>
                         </li>

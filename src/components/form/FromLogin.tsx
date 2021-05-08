@@ -1,13 +1,21 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import Button from './Button'
+import stylesButton from '../form/styles/Button.module.css'
 import  Input  from './Input'
 import Link from 'next/link'
 import variables from '../../utils/variables'
 import Cookie from 'js-cookie'
 import { addDays } from 'date-fns'
 import { useRouter } from 'next/router'
+import  styles  from '../form/styles/FormLogin.module.css'
 export function FormLogin(){
     const router = useRouter()
+    useEffect(()=>{
+        const token = Cookie.get('token')
+        if(token){
+            router.push('/dashboard')
+        }
+    },[])
     const login = async event=>{
         event.preventDefault()
         const res = await fetch(`${variables.urls.url}auth/login`,{
@@ -29,21 +37,29 @@ export function FormLogin(){
             }else{
                 router.push('/login')
             }
-            
-            
+
+
     }
     return(
-        <section>
-            <h1>Login</h1>
-            <form action="" onSubmit={login}>
+        <div className={`${styles.container} animeLeft`}>
+            <h1 className={styles.title}>Entrar</h1>
+            <form  onSubmit={login} className={styles.forms}>
             <Input label="Email" type="text" name="email" />
             <Input label="Senha" type="password" name="password" />
             <Button>Entrar</Button>
-            </form>
             <Link href="/signup">
-                <a>Ou crie uma conta grátis</a>
+                <a className={styles.perdeu}>Perdeu a senha?</a>
             </Link>
-        </section>
+            </form>
+
+            <div className={styles.signup}>
+                <h2 className={styles.subtitle}>Cadastre-se</h2>
+                <p>E descubra um mundo em festa!</p>
+            <Link href="/signup">
+                <a className={stylesButton.button}>Cadastrar!</a>
+            </Link>
+            </div>
+        </div>
     )
 }
 

@@ -6,17 +6,16 @@
     z-index: 100;
     background: #f68b8b;
     top: 0px;
+    font-size: 1.5rem;
 }
 .nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 4rem;
+    height: 2.8rem;
 }
 .logo{
     padding: 0.5rem 0;
     color: #FFFFFF;
-}
-.login{
-
+    font-size: 2rem;
 }

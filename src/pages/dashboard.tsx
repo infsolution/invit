@@ -1,40 +1,38 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import {GetServerSideProps} from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import  styles  from '../styles/pages/Dashboard.module.css'
 import {Invit} from '../components/Invit'
+
 import { Navbar } from '../components/Navbar'
 import { Footer } from '../components/Footer'
+import { Table } from "../components/Table";
+
 import Link from 'next/link'
 import { Inviteds } from '../components/Inviteds'
 import { InferGetStaticPropsType } from 'next'
 import varibles from '../utils/variables'
 import  withAuth from '../utils/withAuth'
 import Cookie from 'js-cookie'
-function Dashboard({parties}:InferGetStaticPropsType<typeof getServerSideProps>){
+function Dashboard({parties}){
     const router = useRouter()
-    if(!parties){
-        return(
-            <p>
-                pagina zerada
-            </p>
-        )
-    }
-    //const { partyhost } = router.query
+    useEffect(()=>{
+        const token = Cookie.get('token')
+        if(!token){
+            router.replace('/login')
+        }
+    },[])
   return (
     <div className={styles.container} >
-        <Head>
-            <meta name="viewport"content="width=device-width, initial-scale=1.0" />
-            <title>Convites da</title>
-        </Head>
-        <Navbar />
-        {/*<Inviteds party={parties.party_id}/>*/}
-        {
-        parties.map( party => {
-            return <p>{party.local}</p>
-        })
-        }
-        <Footer />
+            <Head>
+                <meta name="viewport"content="width=device-width, initial-scale=1.0" />
+                <title>Suas Festas - ConFesta</title>
+            </Head>
+            <Navbar />
+            <Table data={parties}/>
+            <Footer/>
+
     </div>
   )
 }
@@ -42,10 +40,16 @@ function Dashboard({parties}:InferGetStaticPropsType<typeof getServerSideProps>)
 export default withAuth(Dashboard)
 
 
-export async function getServerSideProps(){
-
-    const token = Cookie.get('token')
-    let parties = null
+export  const getServerSideProps: GetServerSideProps = async ({ req }) => {
+    const { token } = req.cookies
+    if(!token){
+        return{
+            redirect:{
+                destination: '/login',
+                permanent: false
+            }
+        }
+    }
     const res = await fetch(`${varibles.urls.url}client/party`,{
         headers: {
             'Content-Type': 'application/json',
@@ -53,18 +57,12 @@ export async function getServerSideProps(){
         },
         method: 'GET'
     })
-    console.log(await res.json())
-    if(res.status >= 400){
-        Cookie.remove('token')
-        parties = null
-    }else{
-        parties = await res.json()
-    }
 
+    const parties = await res.json()
 
     return{
         props:{
-            parties:parties
+            parties:parties.parties
         }
     }
 }

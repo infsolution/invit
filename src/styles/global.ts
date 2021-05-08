@@ -7,7 +7,7 @@ export default createGlobalStyle`
         box-sizing:border-box;
     }
     body{
-        padding-top:4rem;
+        padding-top:4.8rem;
         background: ${props => props.theme.colors.background};
         color: ${props => props.theme.colors.text};
         font: 400 16px 'Courgette', sans-serif;
@@ -32,5 +32,17 @@ export default createGlobalStyle`
     }
     a{
         text-decoration:none;
+    }
+    .animeLeft{
+        opacity: 0;
+        transform: translateX(-10px);
+        animation: animeLeft .3s forwards;
+    }
+
+    @keyframes animeLeft{
+        to{
+            opacity: 1;
+            transform: initial;
+        }
     }
 `;

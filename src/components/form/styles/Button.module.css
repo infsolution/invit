@@ -1,5 +1,5 @@
 .button{
-font-size: 1rem;
+font-size: 2rem;
 font-family: Arial, Helvetica, sans-serif;
 cursor: pointer;
 border: none;
@@ -10,6 +10,7 @@ color: #f5a591;
 padding: 0.4rem 1.2rem;
 box-sizing: border-box;
 transition: 0.2s;
+margin-bottom: 1rem;
 }
 .button:hover,
 .button:focus{
