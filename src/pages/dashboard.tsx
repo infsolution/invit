@@ -17,23 +17,19 @@ import  withAuth from '../utils/withAuth'
 import Cookie from 'js-cookie'
 function Dashboard({parties}){
     const router = useRouter()
-    useEffect(()=>{
-        const token = Cookie.get('token')
-        if(!token){
-            router.replace('/login')
-        }
-    },[])
   return (
-    <div className={styles.container} >
+        <>
             <Head>
                 <meta name="viewport"content="width=device-width, initial-scale=1.0" />
                 <title>Suas Festas - ConFesta</title>
             </Head>
             <Navbar />
+            <div className={`container ${styles.container}`} >
             <Table data={parties}/>
+            </div>
             <Footer/>
+    </>
 
-    </div>
   )
 }
 

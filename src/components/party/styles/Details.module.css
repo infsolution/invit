@@ -1,0 +1,10 @@
+.container{
+    display: grid;
+}
+.container p{
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+.container p strong{
+    margin:1rem;
+}
