@@ -1,6 +1,12 @@
 
+import Button from './Button'
+import  Input  from './Input'
 export function FormParty(){
     return(
-        <form action=""></form>
+        <div>
+            <form action="">
+
+            </form>
+        </div>
     )
 }

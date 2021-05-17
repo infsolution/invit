@@ -1,0 +1,24 @@
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-height: 100vh;
+    gap: 2rem;
+
+}
+
+.container::before{
+    display: block;
+    content: '';
+    background: url('../../assets/signup.jpg') no-repeat center center;
+    background-size: cover;
+    margin-left: 2rem;
+}
+
+@media (max-width: 40rem){
+    .container{
+        grid-template-columns: 1fr;
+    }
+    .container::before{
+        display: none;
+    }
+}
