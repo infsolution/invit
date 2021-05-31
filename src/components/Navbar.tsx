@@ -6,6 +6,7 @@ import Cookie from 'js-cookie'
 import { useRouter } from 'next/router'
 export function Navbar(){
     const router = useRouter()
+    const token = Cookie.get('token')
     function logout(){
         Cookie.remove('token')
         router.push('/login')
@@ -16,10 +17,10 @@ export function Navbar(){
             <Link href="/" >
                 <a className={styles.logo}>ConFesta</a>
             </Link>
-            <Link href="/login">
+            { !token && <Link href="/login">
                 <a  className={styles.login}>Entrar</a>
-            </Link>
-            <Button onClick={logout}>Sair</Button>
+            </Link>}
+            {token && <Button onClick={logout}>Sair</Button>}
            </nav>
         </header>
     )

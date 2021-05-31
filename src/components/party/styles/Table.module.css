@@ -50,3 +50,46 @@
         align-items: center;
         font-size: 1rem;
     }
+
+    .buttonForm{
+        font-size: 1rem;
+        width: 8rem;
+        margin-left: auto;
+        margin-bottom: 0.3rem;
+        margin-top: 0.5rem;
+
+    }
+    .containerForm{
+        max-width: 100%;
+        background: #f8f8f8;
+        font-size: 1rem;
+        margin-top: 1rem;
+        padding: 0.5rem;
+        align-items: center;
+        align-content: center;
+        border-radius: 0.5rem;
+    }
+    .containerForm form{
+        width: 100%;
+    }
+    .containerForm form button{
+        margin-left: auto;
+        font-size: 1.2rem;
+        padding: 0.5rem;
+        margin-top: 0.5rem;
+        margin-right: 0.2rem;
+    }
+
+    .input{
+        width: 100%;
+        font-size: 1.2rem;
+        padding: 0.5rem;
+    }
+    .label{
+        margin: 2rem;
+    }
+
+
+
+
+
