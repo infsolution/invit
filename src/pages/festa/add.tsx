@@ -8,7 +8,7 @@ function Add({}){
         <>
         <Navbar/>
         <div className={styles.container}>
-            <h1>Criar uma nova festa</h1>
+
             <FormParty/>
 
         </div>

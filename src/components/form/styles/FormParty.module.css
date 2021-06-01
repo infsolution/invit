@@ -1,0 +1,39 @@
+.containerForm{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+.backForm{
+    display: grid;
+    width: 50rem;
+    background: #FFFFFF;
+    text-align: center;
+    padding: 1rem;
+}
+.form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.form section{
+    text-align: left;
+    margin-left: 0.4rem;
+}
+.form button{
+    margin-top: 0.5rem;
+    width: 10rem;
+    font-size: 1.5rem;
+}
+
+.label{
+    font-size: 1.5rem;
+    padding: 0.5rem;
+}
+.input{
+    height: 2rem;
+    margin-bottom: 0.4rem;
+    width: 100%;
+    padding: 0.5rem;
+
+}

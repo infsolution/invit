@@ -33,10 +33,10 @@ function Home ({cep}:InferGetStaticPropsType<typeof getStaticProps>){
 export default Home
 
 
-export const getStaticProps = async()=>{
-    /*const res = await fetch('https://viacep.com.br/ws/65631370/json')
+/*export const getStaticProps = async()=>{
+    const res = await fetch('https://viacep.com.br/ws/65631370/json')
     const cep = await res.json()
     return {
         props:{cep}
-    }*/
-}
+    }
+}*/

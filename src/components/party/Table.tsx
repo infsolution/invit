@@ -123,7 +123,8 @@ export function Table({inviteds, party_id}){
     </table>
     </>}
     {inviteds.length == 0 &&
-        <div>Voce ainda não adicionou nenhuma convidado! Clieque <button onClick={()=>setOpen(!open)}>aqui</button> ou em adicionar convidado!</div>
+        <div className={styles.containerNotInvited}><p>Voce ainda não adicionou nenhum
+             convidado! Clieque <button onClick={()=>setOpen(!open)}>aqui</button> ou em adicionar convidado!</p></div>
     }
     </div>
  )
