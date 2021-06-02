@@ -1,4 +1,4 @@
-
+import React from 'react'
 import Button from './Button'
 import  Input  from './Input'
 import styles from './styles/FormParty.module.css'
@@ -7,9 +7,9 @@ import variables from '../../utils/variables'
 import { useRouter } from 'next/router'
 export function FormParty(){
     const router = useRouter()
+
     const handleSubmite = async event =>{
         event.preventDefault()
-        console.log(event.target.image.files[0])
         const addressBody ={
             zipcode: event.target.zipcode.value,
             street: event.target.street.value,
@@ -19,15 +19,19 @@ export function FormParty(){
             state: event.target.state.value,
             country: event.target.country.value
         }
+
+
+
         const partyBody ={
-            date: event.target.date.value,
+            date: event.target.dia.value,
             local: event.target.local.value,
             hour: event.target.hour.value,
             costume: event.target.costume.value,
             present_store: event.target.present_store.value,
-            file: event.target.image.files[0],
+            //file: event.target.file.files[0],
             address_id:null
         }
+
         try {
             const token = Cookie.get('token')
             if(!token) throw new Error('Error: Token inválido!')
@@ -41,15 +45,17 @@ export function FormParty(){
             })
             if(!addressRes.ok) throw new Error(`Error: ${addressRes.statusText}`)
             const {address} = await addressRes.json()
-            partyBody.address_id = address.id
+            partyBody.address_id= address.id
+            console.log(JSON.stringify(partyBody))
             const partyRes = await fetch(`${variables.urls.url}client/party`,{
                 method: 'POST',
                 headers:{
-                    'Content-Type': 'multipart/form-data',
+                    'Content-Type': 'application/json',
                     Authorization:`Bearer ${token}`
                 },
                 body:JSON.stringify(partyBody)
             })
+            //console.log(partyRes)
             if(!partyRes.ok) throw new Error(`Error: ${partyRes.statusText}`)
             router.push('/dashboard')
             //const {party} = await partyRes.json()
@@ -64,11 +70,11 @@ export function FormParty(){
                 <form className={styles.form} onSubmit={handleSubmite}>
                     <section>
                         <Input label="Local" type="text" name="local" style={styles}/>
-                        <Input label="Data" type="date" name="date" style={styles}/>
+                        <Input label="Data" type="date" name="dia" style={styles}/>
                         <Input label="Hora" type="time " name="hour" style={styles}/>
                         <Input label="Traje" type="text" name="costume" style={styles}/>
                         <Input label="Lista de Presentes" type="text" name="present_store" style={styles}/>
-                        <Input label="Convite" type="file" name="image" style={styles}/>
+                        <Input label="Convite" type="file" name="file" style={styles}  />
                     </section>
                     <section>
                         <Input label="CEP" type="text" name="zipcode" style={styles}/>
