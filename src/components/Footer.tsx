@@ -78,16 +78,12 @@ export function Footer(){
                         </ul>
                     </Col>
                </Row>
-           </Grid>
-        </div>
-        <div className={styles.footerCopy}>
-            <Grid>
-            <Row>
+               <Row>
                    <Col xs={12} sm={12} md={12} lg={12}>
-                        <strong> &copy; {date.getUTCFullYear()} ConFesta - Todos os dirteitos reservados </strong>
+                        <strong > &copy; {date.getUTCFullYear()} ConFesta - Todos os dirteitos reservados </strong>
                    </Col>
                </Row>
-            </Grid>
+           </Grid>
         </div>
         </>
 

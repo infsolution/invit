@@ -13,10 +13,11 @@ export default Checkin
 
 export async function getServerSideProps({params}){
     const res = await fetch(`http://api.confesta.com.br/v1/checkin/${params.checkin}`)
-    const result = await res.json()
+    console.log(res.json)
+    const {message} = await res.json()
     return {
         props:{
-            checked:result.data,
+            checked:message.data,
         }
     }
 }

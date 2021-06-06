@@ -1,9 +1,15 @@
+.body {
+    margin:0px;
+    padding:0px;
+    box-sizing:border-box;
+}
 .containerInvited {
     display: grid;
     text-align: center;
     width: 100%;
     align-items: center;
     align-content: center;
+    background: #f5a591;
 
 }
 .containerInvited > h1{

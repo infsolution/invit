@@ -5,6 +5,7 @@ import { useMediaQuery } from 'react-responsive'
 import { InferGetStaticPropsType } from 'next'
 import { Footer } from '../components/Footer'
 import { Navbar } from '../components/Navbar'
+import { Banner } from '../components/Banner'
 
 function Home ({cep}:InferGetStaticPropsType<typeof getStaticProps>){
     const isDesktopOrLaptop = useMediaQuery({
@@ -23,9 +24,8 @@ function Home ({cep}:InferGetStaticPropsType<typeof getStaticProps>){
         <meta name="viewport"content="width=device-width, initial-scale=1.0" />
       </Head>
         <Navbar/>
+        <Banner />
         <Footer />
-        <p></p>
-
     </div>
   )
 }

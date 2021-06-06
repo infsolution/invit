@@ -5,7 +5,8 @@ const theme = {
 colors:{
     background: '#f5a591',
     text:'#121212',
-    primary:'#0000FF'
+    primary:'#0000FF',
+    background_lite: '#FFFFFF'
 },
   flexboxgrid: {
     gridSize:FlexGrid.gridSize, // columns

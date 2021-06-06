@@ -6,18 +6,18 @@ import Cookie from 'js-cookie'
 import variables from '../../utils/variables'
 import { useRouter } from 'next/router'
 export function FormParty(){
-    const [image, setImage] = React.useState(null);
-  const [createObjectURL, setCreateObjectURL] = React.useState(null);
+    //const [image, setImage] = React.useState(null);
+  //const [createObjectURL, setCreateObjectURL] = React.useState(null);
     const router = useRouter()
 
-    const uploadToClient =(event)=>{
+    /*const uploadToClient =(event)=>{
         if (event.target.files && event.target.files[0]) {
             const i = event.target.files[0];
 
             setImage(i);
             setCreateObjectURL(URL.createObjectURL(i));
           }
-    }
+    }*/
 
     const handleSubmite = async event =>{
         event.preventDefault()
@@ -30,14 +30,14 @@ export function FormParty(){
             state: event.target.state.value,
             country: event.target.country.value
         }
-
-        const data = new FormData()
-        data.append('data',event.target.dia.value)
-        data.append('local', event.target.local.value)
-        data.append('hour', event.target.hour.value)
-        data.append('costume',event.target.costume.value)
-        data.append('present_store',event.target.present_store.value)
-        //data.append('file', image)
+        const partyBody = {
+            date: event.target.dia.value,
+            local: event.target.local.value,
+            hour: event.target.hour.value,
+            costume: event.target.costume.value,
+            present_store: event.target.present_store.value,
+            address_id: null
+        }
         try {
             const token = Cookie.get('token')
             if(!token) throw new Error('Error: Token inválido!')
@@ -51,8 +51,8 @@ export function FormParty(){
             })
             if(!addressRes.ok) throw new Error(`Error: ${addressRes.statusText}`)
             const {address} = await addressRes.json()
-            data.append('address_id', address.id)
-
+            partyBody.address_id= address.id
+            //data.append('address_id', address.id)
 
             const partyRes = await fetch(`${variables.urls.url}client/party`,{
                 method: 'POST',
@@ -60,10 +60,11 @@ export function FormParty(){
                     'Content-Type': 'application/json',
                     Authorization:`Bearer ${token}`
                 },
-                body:data
+                body:JSON.stringify(partyBody)
+               // body:data
             })
-            //if(!partyRes.ok) throw new Error(`Error: ${partyRes.statusText}`)
-            //router.push('/dashboard')
+            if(!partyRes.ok) throw new Error(`Error: ${partyRes.statusText}`)
+            router.push('/dashboard')
         } catch (error) {
             console.log(error)
         }
@@ -82,7 +83,6 @@ export function FormParty(){
                         <Input label="Traje" type="text" name="costume" style={styles}/>
                         <Input label="Lista de Presentes" type="text" name="present_store" style={styles}/>
                         {/*<Input label="Convite" type="file" name="file" style={styles}  />*/}
-                        <input type="file" name="file" onChange={uploadToClient}/>
                     </section>
                     <section>
                         <Input label="CEP" type="text" name="zipcode" style={styles}/>

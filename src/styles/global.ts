@@ -7,8 +7,8 @@ export default createGlobalStyle`
         box-sizing:border-box;
     }
     body{
-        padding-top:4.8rem;
-        background: ${props => props.theme.colors.background};
+        padding-top:4.5rem;
+        background: ${props => props.theme.colors.background_lite};
         color: ${props => props.theme.colors.text};
         font: 400 16px 'Courgette', sans-serif;
     }
