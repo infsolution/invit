@@ -104,7 +104,12 @@ export function Table({inviteds, party_id}){
                 {inviteds  && inviteds.map(invited=>{
                      return(
                         <tr  key={invited.id}>
-                        <td>{invited.name}</td>
+                        <td><Link href={`/convidado/${invited.id}`}>
+                            <a>
+                            {invited.name}
+                            </a>
+                            </Link>
+                        </td>
                         <td>{invited.phone}</td>
                         <td>{invited.confirmation}</td>
                         <td>{invited.number_companions}</td>

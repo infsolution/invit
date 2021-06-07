@@ -25,6 +25,7 @@ export function Information({data}){
                         <strong>Exibível</strong>
                         {data.qrcode && <div className={styles.qrcodeContainer}>
                             <p>Este é o seu exibível, baixe-o para o seu smartphone e apresente na entrada do envento!</p>
+                        {console.log(data.qrcode)}
                         <img src={data.qrcode} />
                         </div>}
                         {!data.qrcode && <p>Confirme sua presença para receber QR-Code exibível de acesso ao evento.</p>}

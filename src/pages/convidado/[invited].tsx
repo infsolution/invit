@@ -43,16 +43,16 @@ export default Invited
 
   export async function getServerSideProps({params}){
     const res = await fetch(`${varibles.urls.url}party/${params.invited}`)
-    const invited = await res.json()
-    if (invited.data===null) {
+    const {data} = await res.json()
+    if (data===null) {
         return {
           notFound: true,
         }
       }
     return {
         props:{
-            data:invited.data,
-            invited_name:invited.data.invited.name
+            data:data,
+            invited_name:data.invited.name
         }
     }
   }

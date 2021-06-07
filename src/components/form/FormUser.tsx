@@ -5,10 +5,30 @@ import variables from '../../utils/variables'
 import { useRouter } from 'next/router'
 import  styles  from '../form/styles/FormCreate.module.css'
 export function FormUser(){
+    const router = useRouter()
     async function handleCreate(event){
+        const body = {
+            name: event.target.name.value,
+            email: event.target.email.value,
+            phone: event.target.phone.value,
+            password: event.target.password.value
+        }
         event.preventDefault()
-        const result = await fetch(`${variables.urls.url}auth/register`)
+       try {
+            const result = await fetch(`${variables.urls.url}auth/register`,{
+                method:'POST',
+                headers:{
+                    'Content-Type': 'application/json'
+                },
+                body:JSON.stringify(body)
+            })
+            if(!result.ok) throw new Error(`Error: ${result.statusText}`)
+            router.push('/login')
+       } catch (error) {
+           console.log(error)
+       }
     }
+
     return(
         <>
         <div className={`${styles.container} animeLeft`}>
