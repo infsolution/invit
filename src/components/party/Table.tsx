@@ -13,20 +13,29 @@ export function Table({inviteds, party_id}){
 
     const sendWhatsapp = async event=>{
         event.preventDefault()
-        console.log(event.target.id)
-        const response = await fetch('http://message.confesta.com.br/api/sessaocf/send-message',{
-            method: 'POST',
-            headers:{
-                'Content-Type':'application/json',
-                Authorization: `Bearer $2b$10$.S7Otf4otlNE6tJyb6oiUOP3DJWBfqDdDrlBvNJ_VJjfPdtYLkM8y`
-
-            },
-            body:JSON.stringify({
-                "phone": event.target.alt,
-                "message": `www.confesta.com.br/convidado/${event.target.id}`,
-                "isGroup": false
+        try {
+            const res = await fetch('http://message.confesta.com.br/api/sessaocf/send-message',{
+                method: 'POST',
+                headers:{
+                    'Content-Type':'application/json',
+                    Authorization: `Bearer $2b$10$.S7Otf4otlNE6tJyb6oiUOP3DJWBfqDdDrlBvNJ_VJjfPdtYLkM8y`
+    
+                },
+                body:JSON.stringify({
+                    "phone": `55${event.target.alt}`,
+                    "message": `www.confesta.com.br/convidado/${event.target.id}`,
+                    "isGroup": false
+                })
             })
-        })
+            const {response} = await res.json()
+            if(response){
+                console.log(response.message)
+            }
+        } catch (error) {
+            console.log(error)
+        }
+       
+        
     }
 
     const sendAllWhatsapp = async event=>{
