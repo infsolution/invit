@@ -15,6 +15,7 @@ import { InferGetStaticPropsType } from 'next'
 import varibles from '../utils/variables'
 import  withAuth from '../utils/withAuth'
 import Cookie from 'js-cookie'
+import Cookies from 'cookies'
 function Dashboard({parties}){
     const router = useRouter()
   return (
@@ -36,8 +37,9 @@ function Dashboard({parties}){
 export default withAuth(Dashboard)
 
 
-export  const getServerSideProps: GetServerSideProps = async ({ req }) => {
-    const { token } = req.cookies
+export  const getServerSideProps: GetServerSideProps = async ( {req} ) => {
+    const cookies = new Cookies(req)
+    const token = cookies.get('token')
     if(!token){
         return{
             redirect:{

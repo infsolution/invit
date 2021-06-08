@@ -7,7 +7,7 @@ import { Footer } from '../components/Footer'
 import { Navbar } from '../components/Navbar'
 import { Banner } from '../components/Banner'
 
-function Home ({cep}:InferGetStaticPropsType<typeof getStaticProps>){
+function Home (){
     const isDesktopOrLaptop = useMediaQuery({
         query: '(min-device-width: 1224px)'
       })
