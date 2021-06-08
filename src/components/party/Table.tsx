@@ -14,11 +14,11 @@ export function Table({inviteds, party_id}){
     const sendWhatsapp = async event=>{
         event.preventDefault()
         console.log(event.target.id)
-        const response = await fetch('http://message.confesta.com.br/api/sessao/send-message',{
+        const response = await fetch('http://message.confesta.com.br/api/sessaocf/send-message',{
             method: 'POST',
             headers:{
                 'Content-Type':'application/json',
-                Authorization: `Bearer $2b$10$2fCDI7aKqi0zRhvOpMU4S..PJ8N2I0V2dFwZi_jgZB1ojGe2hc4Rm`
+                Authorization: `Bearer $2b$10$.S7Otf4otlNE6tJyb6oiUOP3DJWBfqDdDrlBvNJ_VJjfPdtYLkM8y`
 
             },
             body:JSON.stringify({
