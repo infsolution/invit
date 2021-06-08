@@ -1,11 +1,12 @@
 import React from 'react'
 import { InferGetStaticPropsType } from 'next'
 import variables from '../../utils/variables'
+import Checked from '../../components/Checked'
 
 function Checkin({checked}:InferGetStaticPropsType<typeof getServerSideProps>){
     return(
         <div>
-            <p>{checked}</p>
+            <Checked checked={checked}/>
         </div>
     )
 }
@@ -14,7 +15,6 @@ export default Checkin
 
 export async function getServerSideProps({params}){
     const res = await fetch(`${variables.urls.url}checkin/${params.checkin}`)
-    console.log(res.json)
     const {message} = await res.json()
     return {
         props:{

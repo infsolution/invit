@@ -14,6 +14,19 @@ export function Table({inviteds, party_id}){
     const sendWhatsapp = async event=>{
         event.preventDefault()
         console.log(event.target.id)
+        const response = await fetch('http://message.confesta.com.br/api/sessao/send-message',{
+            method: 'POST',
+            headers:{
+                'Content-Type':'application/json',
+                Authorization: `Bearer $2b$10$2fCDI7aKqi0zRhvOpMU4S..PJ8N2I0V2dFwZi_jgZB1ojGe2hc4Rm`
+
+            },
+            body:JSON.stringify({
+                "phone": event.target.alt,
+                "message": `www.confesta.com.br/convidado/${event.target.id}`,
+                "isGroup": false
+            })
+        })
     }
 
     const sendAllWhatsapp = async event=>{
@@ -114,13 +127,12 @@ export function Table({inviteds, party_id}){
                         <td>{invited.confirmation}</td>
                         <td>{invited.number_companions}</td>
                         <td  >
-                        <button className={styles.button} onClick={sendWhatsapp} id={invited.phone} >
-                            <img className={styles.image} src="/images/icone_whatsapp.jpg" alt="Enviar pelo Whatsapp"/>
-                        Enviar
-                        </button>
+                            <button className={styles.button} onClick={sendWhatsapp}  >
+                                <img className={styles.image} src="/images/icone_whatsapp.jpg" alt={invited.phone} id={invited.id}/>
+                            </button>
                         </td>
-                        <td>{<button className={styles.button}><img className={styles.image} src="/svg/editar.png" alt=""/> Editar</button>}</td>
-                        <td>{<button className={styles.button}><img className={styles.image} src="/svg/claro.png" alt=""/> Excluir</button>}</td>
+                        <td>{<button className={styles.button}><img className={styles.image} src="/svg/editar.png" alt=""/></button>}</td>
+                        <td>{<button className={styles.button}><img className={styles.image} src="/svg/claro.png" alt=""/> </button>}</td>
                     </tr>
                      )
                 })}

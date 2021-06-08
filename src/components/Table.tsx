@@ -18,8 +18,8 @@ export function Table({data}){
                     <th>Local</th>
                     <th>Data</th>
                     <th>Hora</th>
-                    <th></th>
-                    <th></th>
+                    <th>Editar</th>
+                    <th>Excluir</th>
                 </tr>
             </thead>
             <tbody >
@@ -34,8 +34,8 @@ export function Table({data}){
                         </td>
                         <td>{party.date}</td>
                         <td>{party.hour}</td>
-                       <td>{<button className={styles.button}><img className={styles.image} src="/svg/editar.png" alt=""/>Editar</button>}</td>
-                        <td>{<button className={styles.button}><img className={styles.image} src="/svg/claro.png" alt=""/>Excluir</button>}</td>
+                       <td>{<button className={styles.button}><img className={styles.image} src="/svg/editar.png" alt=""/></button>}</td>
+                        <td>{<button className={styles.button}><img className={styles.image} src="/svg/claro.png" alt=""/></button>}</td>
                     </tr>)
 
             })
