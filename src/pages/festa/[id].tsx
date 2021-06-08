@@ -8,6 +8,7 @@ import { Table } from "../../components/party/Table"
 import  withAuth from '../../utils/withAuth'
 import varibles from '../../utils/variables'
 import { PartyHost } from '../../components/party/PartyHost';
+import Cookies from 'cookies'
 function PartyId({party, inviteds, partyhost}){
 return(
     <> <Head>
@@ -29,7 +30,8 @@ return(
 export default withAuth(PartyId)
 
 export const getServerSideProps: GetServerSideProps = async ({ req, params })=>{
-    const { token } = req.cookies
+    const cookies = new Cookies(req)
+    const token = cookies.get('token')
     const id = params.id
 
     const res = await fetch(`${varibles.urls.url}client/party/${id}`,{

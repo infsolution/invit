@@ -7,6 +7,7 @@ const AuthProvider = ({ children })=>{
     const [userDetail, setUserDetail] = useState({})
 
     return (
+        <p></p>
     )
 
 }
