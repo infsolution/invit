@@ -14,16 +14,16 @@ export function Table({inviteds, party_id}){
     const sendWhatsapp = async event=>{
         event.preventDefault()
         try {
-            const res = await fetch('http://message.confesta.com.br/api/sessaocf/send-message',{
+            const res = await fetch('https://message.confesta.com.br/api/sessaocf/send-message',{
                 method: 'POST',
                 headers:{
                     'Content-Type':'application/json',
                     Authorization: `Bearer $2b$10$.S7Otf4otlNE6tJyb6oiUOP3DJWBfqDdDrlBvNJ_VJjfPdtYLkM8y`
-    
+
                 },
                 body:JSON.stringify({
                     "phone": `55${event.target.alt}`,
-                    "message": `www.confesta.com.br/convidado/${event.target.id}`,
+                    "message": `https://www.confesta.com.br/convidado/${event.target.id}`,
                     "isGroup": false
                 })
             })
@@ -34,8 +34,6 @@ export function Table({inviteds, party_id}){
         } catch (error) {
             console.log(error)
         }
-       
-        
     }
 
     const sendAllWhatsapp = async event=>{
