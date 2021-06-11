@@ -7,17 +7,8 @@ import variables from '../../utils/variables'
 import { useRouter } from 'next/router'
 export function FormParty(){
     //const [image, setImage] = React.useState(null);
-  //const [createObjectURL, setCreateObjectURL] = React.useState(null);
     const router = useRouter()
 
-    /*const uploadToClient =(event)=>{
-        if (event.target.files && event.target.files[0]) {
-            const i = event.target.files[0];
-
-            setImage(i);
-            setCreateObjectURL(URL.createObjectURL(i));
-          }
-    }*/
 
     const handleSubmite = async event =>{
         event.preventDefault()
@@ -52,7 +43,6 @@ export function FormParty(){
             if(!addressRes.ok) throw new Error(`Error: ${addressRes.statusText}`)
             const {address} = await addressRes.json()
             partyBody.address_id= address.id
-            //data.append('address_id', address.id)
 
             const partyRes = await fetch(`${variables.urls.url}client/party`,{
                 method: 'POST',

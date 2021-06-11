@@ -7,13 +7,27 @@ import variables from '../../utils/variables'
 import Cookie from 'js-cookie'
 import { useRouter } from 'next/router'
 import {Grid, Row,Col} from 'react-styled-flexboxgrid'
-export function Table({inviteds, party_id}){
+export function Table({inviteds, party}){
     const [open, setOpen] = React.useState(false)
+
     const router = useRouter()
 
     const sendWhatsapp = async event=>{
         event.preventDefault()
         try {
+            const resB = await fetch('https://message.confesta.com.br/api/sessaocf/send-file-base64',{
+                method: 'POST',
+                headers:{
+                    'Content-Type':'application/json',
+                    Authorization: `Bearer $2b$10$.S7Otf4otlNE6tJyb6oiUOP3DJWBfqDdDrlBvNJ_VJjfPdtYLkM8y`
+
+                },
+                body:JSON.stringify({
+                    "phone": `55${event.target.alt}`,
+                    "base64": `data:image/jpg;base64,${party.base64}`,
+                    "isGroup": false
+                })
+            })
             const res = await fetch('https://message.confesta.com.br/api/sessaocf/send-message',{
                 method: 'POST',
                 headers:{
@@ -23,7 +37,7 @@ export function Table({inviteds, party_id}){
                 },
                 body:JSON.stringify({
                     "phone": `55${event.target.alt}`,
-                    "message": `https://www.confesta.com.br/convidado/${event.target.id}`,
+                    "message": `A ConFesta tem o prazer de convidá-lo para a festa de 15 anos de Glória Kethely! Para acessar o seu convite virtual e confirmar sua presença clique no link: https://www.confesta.com.br/convidado/${event.target.id}`,
                     "isGroup": false
                 })
             })
@@ -49,7 +63,7 @@ export function Table({inviteds, party_id}){
             phone: event.target.phone.value,
             message: event.target.message.value,
             number_companions: event.target.number_companions.value,
-            party_id: party_id
+            party_id: party.id
         }
         try {
             const token = Cookie.get('token')
@@ -66,12 +80,14 @@ export function Table({inviteds, party_id}){
             const {invited} = await response.json()
             if(invited){
                 setOpen(false)
-                router.push(`/festa/${party_id}`)
+                router.push(`/festa/${party.id}`)
             }
         } catch (error) {
             console.log(error)
         }
     }
+
+
  return (
      <div  className={styles.container}>
           <h2>Seus Convidados</h2>
@@ -107,7 +123,7 @@ export function Table({inviteds, party_id}){
             }
 
             { inviteds.length > 0 && <>
-                <Button  style={styles.buttonForm} onClick={sendAllWhatsapp} >Enviar para todos</Button>
+                <Button  style={styles.buttonForm} onClick={sendAllWhatsapp}> Enviar para todos </Button>
             <table className={styles.table}>
             <thead>
                 <tr>
@@ -134,8 +150,8 @@ export function Table({inviteds, party_id}){
                         <td>{invited.confirmation}</td>
                         <td>{invited.number_companions}</td>
                         <td  >
-                            <button className={styles.button} onClick={sendWhatsapp}  >
-                                <img className={styles.image} src="/images/icone_whatsapp.jpg" alt={invited.phone} id={invited.id}/>
+                            <button className={styles.button} onClick={sendWhatsapp} >
+                                <img className={styles.image} src="/images/icone_whatsapp.jpg" alt={invited.phone} id={invited.id} />
                             </button>
                         </td>
                         <td>{<button className={styles.button}><img className={styles.image} src="/svg/editar.png" alt=""/></button>}</td>

@@ -20,7 +20,7 @@ return(
             <h1 className={styles.title}>Festa</h1>
             <Details party={party}/>
             <PartyHost partyHost={partyhost}/>
-            <Table inviteds={inviteds} party_id={party.id}/>
+            <Table inviteds={inviteds} party={party}/>
         </div>
         <Footer/>
     </>

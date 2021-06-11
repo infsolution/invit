@@ -8,9 +8,7 @@ function Add({}){
         <>
         <Navbar/>
         <div className={styles.container}>
-
             <FormParty/>
-
         </div>
         <Footer />
         </>
