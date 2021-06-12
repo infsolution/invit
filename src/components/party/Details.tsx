@@ -18,18 +18,22 @@ export function Details({party}){
     }
    const handleSubmit = async event=>{
     event.preventDefault()
-    const token = window.localStorage.getItem('token')
-    const formData = new FormData()
     try {
-        formData.append('img', img.raw)
-    const response = await fetch(`${variables.urls.url}client/add-invit/${party.id}`,{
+        const token = window.localStorage.getItem('token')
+        const formData = new FormData()
+        formData.append('file', event.target.file.files[0])
+        console.log(formData)
+    const res = await fetch(`${variables.urls.url}client/add-invit/${party.id}`,{
+        method: 'PUT',
+        body:JSON.stringify({name:'Cicero'}),
         headers: {
+            //'content-type': 'multipart/form-data',
+            'content-type': 'application/json',
             'Authorization': `Bearer ${token}`
         },
-        method: 'PUT',
-        body:formData
     })
-    if(!response.ok) throw new Error(`Error: ${response.statusText}`)
+    console.log(res)
+    if(!res.ok) throw new Error(`Error: ${res.statusText}`)
         alert('Imagen salva com sucesso!')
         window.location.reload()
     } catch (error) {
@@ -51,9 +55,9 @@ export function Details({party}){
                 { !party.invite_path_image && <button onClick={()=>setOpenForm(!openForm)}>Adicionar imagem</button>}
                 </p>
             {openForm &&
-                <form >
-                    <input type="file" name="file" id="" onChange={handleImgChange}/>
-                    <button onClick={handleSubmit}>Salvar Convite</button>
+                <form onSubmit={handleSubmit}>
+                    <input type="file" name="file" id=""/>
+                    <button>Salvar Convite</button>
                 </form>
             }
             <p><strong>Número de convidados:</strong><label>{number_companions}</label></p>
