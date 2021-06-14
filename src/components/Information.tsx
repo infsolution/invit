@@ -4,7 +4,7 @@ import {Grid, Row,Col} from 'react-styled-flexboxgrid'
 const datetools = require('../utils/datestools')
 export function Information({data}){
     const api_key =  process.env.GOOGLE_API_KEY
-    const palce = 'place_id:ChIJZ5XRTng3jgcRhlHxGhe8E60'
+    const palce = 'place_id:ChIJbdpOKZI3jgcRfoC2yiiHZpk'
     const url_google_maps = `https://www.google.com/maps/embed/v1/place?q=${palce}&key=${api_key}`
     const day = data.party.date.slice(8,10)
     const mounth = data.party.date.slice(5,7)
@@ -25,7 +25,6 @@ export function Information({data}){
                         <strong>Exibível</strong>
                         {data.qrcode && <div className={styles.qrcodeContainer}>
                             <p>Este é o seu exibível, baixe-o para o seu smartphone e apresente na entrada do envento!</p>
-                        {console.log(data.qrcode)}
                         <img src={data.qrcode} />
                         </div>}
                         {!data.qrcode && <p>Confirme sua presença para receber QR-Code exibível de acesso ao evento.</p>}
