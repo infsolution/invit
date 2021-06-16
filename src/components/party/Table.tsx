@@ -15,7 +15,7 @@ export function Table({inviteds, party}){
     const sendWhatsapp = async event=>{
         event.preventDefault()
         try {
-            /*const resB = await fetch('https://message.confesta.com.br/api/sessaocf/send-file-base64',{
+            const resB = await fetch('https://message.confesta.com.br/api/sessaocf/send-file-base64',{
                 method: 'POST',
                 headers:{
                     'Content-Type':'application/json',
@@ -28,7 +28,7 @@ export function Table({inviteds, party}){
                     "isGroup": false
                 })
             })
-            const res = await fetch('https://message.confesta.com.br/api/sessaocf/send-message',{
+            /*const res = await fetch('https://message.confesta.com.br/api/sessaocf/send-message',{
                 method: 'POST',
                 headers:{
                     'Content-Type':'application/json',
