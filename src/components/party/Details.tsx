@@ -45,7 +45,9 @@ export function Details({party}){
             <p><strong>Local:</strong><label>{party.local}</label></p>
             <p><strong>Data:</strong><label>{party.date}</label><strong>Hora:</strong><label>{party.hour}</label></p>
             <p><strong>Traje:</strong><label>{party.costume}</label></p>
+            {party.present_store && 
             <p><strong>Presentes:</strong><label>{party.present_store}</label></p>
+            }
             <p><strong>Covite:</strong> {
                 party.invite_path_image &&
                 <Link  href={`${varibles.urls.url}download/img/${party.invite_path_image}`}>
