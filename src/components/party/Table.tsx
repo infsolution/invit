@@ -15,7 +15,7 @@ export function Table({inviteds, party}){
     const sendWhatsapp = async event=>{
         event.preventDefault()
         try {
-            /*const resB = await fetch('https://message.confesta.com.br/api/sessaocf/send-file-base64',{
+            const resB = await fetch('https://message.confesta.com.br/api/sessaocf/send-file-base64',{
                 method: 'POST',
                 headers:{
                     'Content-Type':'application/json',
@@ -28,7 +28,7 @@ export function Table({inviteds, party}){
                     "isGroup": false
                 })
             })
-            const res = await fetch('https://message.confesta.com.br/api/sessaocf/send-message',{
+            /*const res = await fetch('https://message.confesta.com.br/api/sessaocf/send-message',{
                 method: 'POST',
                 headers:{
                     'Content-Type':'application/json',
@@ -51,7 +51,7 @@ export function Table({inviteds, party}){
                 body:JSON.stringify({
                     "phone": `55${event.target.alt}`,
                     "url": `https://www.confesta.com.br/convidado/${event.target.id}`,
-                    "caption": 'A ConFesta tem o prazer de convidá-lo para a festa de 15 anos de Glória Kethely! Para acessar o seu convite virtual e confirmar sua presença clique no link'
+                    "caption": 'A ConFesta tem o prazer de convidá-lo para a festa de 15 anos de Glória Ketheley! Para acessar o seu convite virtual e confirmar sua presença clique no link'
                 })
             })
             const {response} = await res.json()

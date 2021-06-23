@@ -1,6 +1,6 @@
 module.exports={
     setDay(date){
-        const days = ['Segunda Feira', 'Terça Feira', 'Quarta Feira', 'Quinta Feira', 'Sexta Feira', 'Sábado', 'Domingo']
+        const days = ['Domingo','Segunda Feira', 'Terça Feira', 'Quarta Feira', 'Quinta Feira', 'Sexta Feira', 'Sábado']
         return days[date]
     },
 

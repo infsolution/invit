@@ -39,9 +39,10 @@ export function Information({data}){
                     <iframe className={styles.mapInformation} src={url_google_maps} />
                 </Col>
                 <Col xs={12} sm={12} md={6} lg={6} >
-                <strong>Presentes</strong>
-                    {
-                     data.party.present_store &&   <p>Nossas sugestões de presentes, em loja física, estão disponíveis na {data.party.present_store}.</p>
+                
+                    {   
+                     data.party.present_store &&   <div><strong>Presentes</strong>
+                     <p>Nossas sugestões de presentes, em loja física, estão disponíveis na {data.party.present_store}.</p></div>
                     }
                     {data.presents.length > 0
                         &&
