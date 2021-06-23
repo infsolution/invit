@@ -34,3 +34,18 @@
     margin-right: auto;
 }
 
+.banner{
+    display: grid;
+    background: #9fee71;
+    height: 10rem;
+    border-radius: 5rem;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    margin: 1rem;
+}
+.banner strong{
+    align-content: center;
+    color: #ffffff;
+    font-size: 2rem;
+}

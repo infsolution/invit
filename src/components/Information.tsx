@@ -39,8 +39,8 @@ export function Information({data}){
                     <iframe className={styles.mapInformation} src={url_google_maps} />
                 </Col>
                 <Col xs={12} sm={12} md={6} lg={6} >
-                
-                    {   
+
+                    {
                      data.party.present_store &&   <div><strong>Presentes</strong>
                      <p>Nossas sugestões de presentes, em loja física, estão disponíveis na {data.party.present_store}.</p></div>
                     }
@@ -55,6 +55,9 @@ export function Information({data}){
                     <p>{data.party.costume}</p>
                      <strong>Mensagem da aniversariante</strong>
                     <p>Ficarei muito feliz com a sua presença</p>
+                    <div className={styles.banner}>
+                    <strong>Válido para {data.invited.number_companions+1} {data.invited.number_companions == 0 ?'pessoa': 'pessoas'}</strong>
+                    </div>
                 </Col>
             </Row>
             </Grid>
