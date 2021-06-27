@@ -39,10 +39,14 @@ export default createGlobalStyle`
         animation: animeLeft .3s forwards;
     }
 
+
+
     @keyframes animeLeft{
         to{
             opacity: 1;
             transform: initial;
         }
     }
+
+
 `;

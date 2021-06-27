@@ -7,6 +7,7 @@ import { Header } from '../components/landingpage/Header';
 import { Checkin } from '../components/landingpage/Checkin';
 import { TypeEvents } from '../components/landingpage/TypeEvents';
 import { NavbarLanding } from '../components/landingpage/NavbarLanding';
+import { Prices } from '../components/landingpage/Prices';
 function Home (){
 
   return (
@@ -18,6 +19,7 @@ function Home (){
       <NavbarLanding/>
       <Header/>
       <Checkin/>
+      <Prices/>
       <TypeEvents/>
       <Contacts/>
       <footer className={styles.footer}>

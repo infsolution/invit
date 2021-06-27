@@ -9,3 +9,12 @@ import { useMediaQuery } from 'react-responsive'
         query: '(max-device-width: 1224px)'
       })
       const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
+
+
+
+style={{ fontSize: '1.5rem' ,color:'#FFFFFF', marginTop:'0.5rem'}}
+
+ style={{ fontSize: '1.5rem', marginTop:'0.5rem', marginRight:'3rem'}}
+
+
+ holder.js/800x400?text=First slide&bg=373940

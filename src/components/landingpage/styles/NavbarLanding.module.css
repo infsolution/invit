@@ -1,0 +1,18 @@
+.container{
+    color: #FFFFFF;
+    font-size: 1.5rem;
+}
+
+.img{
+    width: 3rem;
+    height: 3rem;
+    background: #FFFFFF;
+    border-radius: 2rem;
+}
+.img:hover{
+    background: #ee99b7;
+}
+.navDrop{
+    color: #FFFFFF;
+}
+

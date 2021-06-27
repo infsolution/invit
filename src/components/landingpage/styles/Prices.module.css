@@ -1,0 +1,15 @@
+.container{
+    font-family: 'Poppins', Georgia, 'Times New Roman', Times, serif;
+    margin: 1rem;
+}
+.item{
+    display: flex;
+    align-items: center;
+
+}
+.item img{
+    height: 0.8rem;
+    width: 0.8rem;
+    margin-right: 0.3rem;
+}
+

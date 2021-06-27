@@ -12,7 +12,6 @@
 
 .containerInformation p {
     margin: 0.6rem;
-
 }
 
 .mapInformation{
@@ -44,6 +43,7 @@
     align-content: center;
     margin: 1rem;
 }
+
 .banner strong{
     align-content: center;
     color: #ffffff;

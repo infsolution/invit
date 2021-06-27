@@ -1,4 +1,7 @@
-
 .container{
-    
+    font-family: 'Poppins', Georgia, 'Times New Roman', Times, serif;
+}
+.imgSlide{
+    height: 45rem;
+    width: 110rem;
 }

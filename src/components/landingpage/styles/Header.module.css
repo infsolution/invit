@@ -1,4 +1,45 @@
 
 .container{
-    
+    display: grid;
+    height: 100vh;
+    background: url('../../../../public/assets/texture01.png') no-repeat center center;
+    background-size: cover;
+    font-family: 'Poppins' ,Georgia, 'Times New Roman', Times, serif;
+    align-items: center;
+    align-content: center;
 }
+.info{
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    margin-top: 4rem;
+}
+
+.card{
+display: flex;
+align-items: center;
+align-content: center;
+text-align: center;
+background: rgba(238, 153, 183, 0.6);
+border-radius: 5rem;
+}
+
+.card img{
+    height: 25rem;
+    margin-left: auto;
+    opacity: 0.6;
+}
+.card div{
+    display: grid;
+    margin-left: 1rem;
+    border-radius: 1.5rem;
+    height: 10rem;
+    width: 13rem;
+    align-content: center;
+    align-items: center;
+}
+.card div h5{
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
