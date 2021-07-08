@@ -1,5 +1,6 @@
 import React from 'react'
 import {Grid, Row,Col} from 'react-styled-flexboxgrid'
+import { Contacts } from '../components/Contacts';
 import { Footer } from '../components/Footer';
 import {FormLogin} from '../components/form/FromLogin'
 import { Navbar } from '../components/Navbar';
@@ -8,10 +9,10 @@ function Login(){
 return(
     <>
     <section className={styles.login}>
-        <Navbar/>
         <FormLogin/>
+
     </section>
-    <Footer/>
+    <Contacts/>
     </>
 
 )

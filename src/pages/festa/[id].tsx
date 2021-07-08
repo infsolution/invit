@@ -1,6 +1,5 @@
 import {GetServerSideProps} from 'next'
 import { Footer } from "../../components/Footer";
-import { Navbar } from "../../components/Navbar";
 import styles from '../../styles/pages/Party.module.css'
 import Head from 'next/head'
 import {Details} from '../../components/party/Details'
@@ -9,20 +8,22 @@ import  withAuth from '../../utils/withAuth'
 import varibles from '../../utils/variables'
 import { PartyHost } from '../../components/party/PartyHost';
 import Cookies from 'cookies'
+import { NavbarLanding } from '../../components/landingpage/NavbarLanding';
+import { Contacts } from '../../components/Contacts';
 function PartyId({party, inviteds, partyhost}){
 return(
     <> <Head>
             <meta name="viewport"content="width=device-width, initial-scale=1.0" />
             <title>Suas Festas - ConFesta</title>
         </Head>
-        <Navbar/>
+        <NavbarLanding/>
         <div className={`${styles.container} container`}>
             <h1 className={styles.title}>Festa</h1>
             <Details party={party}/>
             <PartyHost partyHost={partyhost}/>
             <Table inviteds={inviteds} party={party}/>
         </div>
-        <Footer/>
+       <Contacts/>
     </>
 )
 }
