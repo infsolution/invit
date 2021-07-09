@@ -1,52 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
 .container{
-    padding: 4rem;
+    display: grid;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    width: 30rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+    
 }
-.forms{
-    margin-bottom: 1rem;
-    max-width: 35rem;
+.container div{
+   background: #f5a591;
+   max-width: 30rem;
+   border-radius: 1rem;
+   padding: 1rem;
 }
-.title{
-    font-family: Arial, Helvetica, sans-serif;
+
+
+
+.title{  
     margin-bottom: 1rem;
     font-size: 3rem;
-}
-.perdeu{
-    display: inline-block;
-    color: #666666;
-    padding: 0.5rem 0;
-    line-height: 1;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1rem;
-    margin-left: 15rem;
-}
-.perdeu::after{
-    content: '';
-    height: 1px;
-    width: 100%;
-    background: currentColor;
-    display: block;
-}
-
-.signup{
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
-
-.signup p{
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    font-size: 2rem;
-}
-
-.subtitle{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 3rem;
-    line-height: 1rem;
-}
-
-
-@media (max-width: 40rem){
-    .forms{
-        max-width: 100%;
-    }
 }

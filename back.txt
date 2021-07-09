@@ -18,3 +18,79 @@ style={{ fontSize: '1.5rem' ,color:'#FFFFFF', marginTop:'0.5rem'}}
 
 
  holder.js/800x400?text=First slide&bg=373940
+ 
+/////////////////////////////LOGIN////////////////////////////////////////
+
+<div className={`${styles.container} animeLeft`}>
+            <h1 className={styles.title}>Entrar</h1>
+            <form  onSubmit={login} className={styles.forms}>
+            <Input label="Email" type="text" name="email" />
+            <Input label="Senha" type="password" name="password" />
+            <Button>Entrar</Button>
+            <Link href="/signup">
+                <a className={styles.perdeu}>Perdeu a senha?</a>
+            </Link>
+            </form>
+
+            <div className={styles.signup}>
+                <h2 className={styles.subtitle}>Cadastre-se</h2>
+                <p>E descubra um mundo em festa!</p>
+            <Link href="/signup">
+                <a className={stylesButton.button}>Cadastrar!</a>
+            </Link>
+            </div>
+        </div>
+/////////////////////style-login//////////////////////
+.container{
+    padding: 4rem;
+}
+.forms{
+    margin-bottom: 1rem;
+    max-width: 35rem;
+}
+.title{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 1rem;
+    font-size: 3rem;
+}
+.perdeu{
+    display: inline-block;
+    color: #666666;
+    padding: 0.5rem 0;
+    line-height: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    margin-left: 15rem;
+}
+.perdeu::after{
+    content: '';
+    height: 1px;
+    width: 100%;
+    background: currentColor;
+    display: block;
+}
+
+.signup{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.signup p{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.subtitle{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3rem;
+    line-height: 1rem;
+}
+
+
+@media (max-width: 40rem){
+    .forms{
+        max-width: 100%;
+    }
+}
+////////////////////////////////////////////////////////////

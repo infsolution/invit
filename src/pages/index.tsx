@@ -1,13 +1,12 @@
 import React from 'react'
 import Head from 'next/head'
-import  styles  from '../styles/pages/Landingpage.module.css'
-import { Modal, Button } from 'react-bootstrap';
 import { Contacts } from '../components/Contacts';
 import { Header } from '../components/landingpage/Header';
 import { Checkin } from '../components/landingpage/Checkin';
 import { TypeEvents } from '../components/landingpage/TypeEvents';
 import { NavbarLanding } from '../components/landingpage/NavbarLanding';
 import { Prices } from '../components/landingpage/Prices';
+import { Footer } from '../components/Footer';
 function Home (){
 
   return (
@@ -22,9 +21,7 @@ function Home (){
       <Prices/>
       <TypeEvents/>
       <Contacts/>
-      <footer className={styles.footer}>
-        <h5>ConFesta &copy; Todos os direitos reservados</h5>
-      </footer>
+      <Footer/>    
     </div>
   )
 }

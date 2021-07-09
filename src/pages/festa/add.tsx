@@ -1,9 +1,9 @@
 import  withAuth from '../../utils/withAuth'
 import styles from '../../styles/pages/Add.module.css'
-
 import { FormParty} from '../../components/form/FormParty'
 import { NavbarLanding } from '../../components/landingpage/NavbarLanding'
 import { Contacts } from '../../components/Contacts'
+import { Footer } from '../../components/Footer'
 function Add({}){
     return(
         <>
@@ -12,6 +12,7 @@ function Add({}){
             <FormParty/>
         </div>
        <Contacts/>
+       <Footer/>
         </>
     )
 }

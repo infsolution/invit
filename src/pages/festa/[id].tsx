@@ -24,6 +24,7 @@ return(
             <Table inviteds={inviteds} party={party}/>
         </div>
        <Contacts/>
+       <Footer/>
     </>
 )
 }

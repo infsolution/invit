@@ -1,23 +1,25 @@
 import React,{useEffect} from 'react'
-import Button from './Button'
-import stylesButton from '../form/styles/Button.module.css'
-import  Input  from './Input'
+
 import Link from 'next/link'
 import variables from '../../utils/variables'
 import Cookie from 'js-cookie'
 import { addDays } from 'date-fns'
 import { useRouter } from 'next/router'
 import  styles  from '../form/styles/FormLogin.module.css'
+import {Form, Button} from 'react-bootstrap';
 export function FormLogin(){
+  const [isLoading, setLoading] = React.useState(false)
     const router = useRouter()
     useEffect(()=>{
         const token = Cookie.get('token')
         if(token){
             router.push('/dashboard')
         }
+        setLoading(false)
     },[])
     const login = async event=>{
         event.preventDefault()
+        setLoading(true)
         const res = await fetch(`${variables.urls.url}auth/login`,{
             body: JSON.stringify({
                 email: event.target.email.value,
@@ -41,23 +43,31 @@ export function FormLogin(){
 
     }
     return(
-        <div className={`${styles.container} animeLeft`}>
+        <div className={styles.container}>
+            <div>
             <h1 className={styles.title}>Entrar</h1>
-            <form  onSubmit={login} className={styles.forms}>
-            <Input label="Email" type="text" name="email" />
-            <Input label="Senha" type="password" name="password" />
-            <Button>Entrar</Button>
-            <Link href="/signup">
-                <a className={styles.perdeu}>Perdeu a senha?</a>
-            </Link>
-            </form>
+            <Form onSubmit={login}>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Control type="email" placeholder="Email" name="email" required/>
+              </Form.Group>
 
-            <div className={styles.signup}>
-                <h2 className={styles.subtitle}>Cadastre-se</h2>
-                <p>E descubra um mundo em festa!</p>
-            <Link href="/signup">
-                <a className={stylesButton.button}>Cadastrar!</a>
-            </Link>
+              <Form.Group controlId="formBasicPassword">
+                <Form.Control type="password" placeholder="Password" name={"password"}  required/>
+              </Form.Group>
+              <Form.Group controlId="formBasicCheckbox">
+                <Form.Text >Ainda não tem conta?</Form.Text>
+                <Form.Text>
+                <Link href="/signup">
+                    <a>
+                  CADASTRE-SE
+                  </a>
+                  </Link>
+                </Form.Text>
+              </Form.Group>
+              <Button variant="primary" type="submit" disabled={isLoading} block> 
+              {isLoading ? 'Carregando…' : 'Entrar'}
+              </Button>
+            </Form>
             </div>
         </div>
     )

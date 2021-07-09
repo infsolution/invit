@@ -29,6 +29,7 @@ function Dashboard({parties}){
             <Table data={parties}/>
             </div>
             <Contacts/>
+            <Footer/>
     </>
 
   )
