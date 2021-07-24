@@ -35,7 +35,6 @@ export default class MyDocument extends Document {
                 <meta charSet="utf-8"/>
                 <link rel="icon" href="/assets/logos/confesta_logo.ico" type="image/ico" sizes="16x16" />
                 <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet" />
-                <link href="#" rel="icon"/>
               </Head>
               <body>
                   <Main />
