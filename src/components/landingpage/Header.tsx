@@ -8,9 +8,9 @@ import {
 export function Header(){
     return(
         <>
-        <Container className={styles.container}>
+        <Container fluid={true} className={styles.container}>
             <Row>
-            <Col xs={12} xl={6} lg={12}>
+            <Col xs={12} sm={12} md={12} xl={12} lg={6}  >
                 <div className={styles.info}>
                 <h1>SAIBA QUANTOS CONVIDADOS ESTARÃO PRESENTES EM SEU EVENTO!</h1>
                 <p>Adicione sofisticação às suas festas com nosso <strong>RSVP</strong>  </p>
@@ -18,7 +18,7 @@ export function Header(){
                 </div>
             </Col>
 
-            <Col xs={12} xl={6} lg={12}>
+            <Col xs={12} sm={12} md={12} xl={12} lg={6} >
                 <div className={styles.card}>
                     <div>
                     <h5>Nossos planos se adequam ao seu evento!</h5>

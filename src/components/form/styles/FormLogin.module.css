@@ -3,11 +3,10 @@
 .container{
     display: grid;
     font-family: 'Poppins', Arial, Helvetica, sans-serif;
-    width: 30rem;
+    width: 20rem;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 2rem;
-    
 }
 .container div{
    background: #f5a591;
@@ -15,9 +14,6 @@
    border-radius: 1rem;
    padding: 1rem;
 }
-
-
-
 .title{  
     margin-bottom: 1rem;
     font-size: 3rem;

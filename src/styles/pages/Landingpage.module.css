@@ -28,6 +28,10 @@
     align-items: center;
     font-family: 'Poppins',Arial, Helvetica, sans-serif;
   }
+
+  .footer h5 {
+    margin-left: 1rem;
+  }
   .contactContainerBg{
     background-color: #121212;
     color: #FFFFFF;
