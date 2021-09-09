@@ -23,7 +23,7 @@ export function Header(){
                     <div>
                     <h5>Nossos planos se adequam ao seu evento!</h5>
                     </div>
-                        <img src="/assets/tacas01.png" alt=""/>
+                        <img src="/assets/tacas03.png" alt=""/>
                     </div>
             </Col>
             </Row>

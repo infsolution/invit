@@ -1,14 +1,9 @@
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 .container{
-display: grid;
-max-width: 100%;
-padding: 2rem;
-align-content: center;
-align-items: center;
-overflow-x:auto;
-
+font-family: 'Poppins', Arial, Helvetica, sans-serif;
+text-align: center;
 }
-.container h2{
+.container h1{
     font-size: 2rem;
     margin-bottom: 1rem;
 }
@@ -35,13 +30,14 @@ overflow-x:auto;
     background:#f1bfb3;
   }
 .add{
-    width: 12rem;
-    font-size: 1.5rem;
+    width: 10rem;
+    font-size: 1rem;
     margin: 1rem 0 1rem 1rem;
     margin-left: auto;
     background: #d4d0d1;
     border-radius: 0.2rem;
-    padding: 0.5rem;
+    padding: 0.3rem;
+    text-align: center;
 }
 .add:hover{
     background: #f1e1e5;
@@ -52,7 +48,7 @@ overflow-x:auto;
 }
 .add a:hover{
     color: #080808;
-
+    text-decoration: none;
 }
 .button{
     display: flex;
@@ -65,4 +61,8 @@ overflow-x:auto;
     height: 2rem;
     border-radius: 10%;
     margin: 0.2rem;
+}
+
+.link a:hover{
+    text-decoration: none;
 }

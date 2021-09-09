@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import  styles  from '../styles/pages/Dashboard.module.css'
 import {Invit} from '../components/Invit'
 import { Footer } from '../components/Footer'
-import { Table } from "../components/Table";
+import { Tables } from "../components/Tables";
 
 import Link from 'next/link'
 import { Inviteds } from '../components/Inviteds'
@@ -16,6 +16,7 @@ import Cookie from 'js-cookie'
 import Cookies from 'cookies'
 import { NavbarLanding } from '../components/landingpage/NavbarLanding'
 import { Contacts } from '../components/Contacts'
+
 function Dashboard({parties}){
     const router = useRouter()
   return (
@@ -25,9 +26,7 @@ function Dashboard({parties}){
                 <title>Suas Festas - ConFesta</title>
             </Head>
             <NavbarLanding />
-            <div className={`container ${styles.container}`} >
-            <Table data={parties}/>
-            </div>
+            <Tables data={parties}/>
             <Contacts/>
             <Footer/>
     </>
@@ -57,11 +56,11 @@ export  const getServerSideProps: GetServerSideProps = async ( {req} ) => {
         method: 'GET'
     })
 
-    const parties = await res.json()
+    const {parties} = await res.json()
 
     return{
         props:{
-            parties:parties.parties
+            parties:parties
         }
     }
 }

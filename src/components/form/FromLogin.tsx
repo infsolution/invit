@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React from 'react'
 
 import Link from 'next/link'
 import variables from '../../utils/variables'
@@ -10,7 +10,7 @@ import {Form, Button} from 'react-bootstrap';
 export function FormLogin(){
   const [isLoading, setLoading] = React.useState(false)
     const router = useRouter()
-    useEffect(()=>{
+    React.useEffect(()=>{
         const token = Cookie.get('token')
         if(token){
             router.push('/dashboard')

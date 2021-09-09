@@ -6,9 +6,9 @@ import styles from '../styles/pages/Signup.module.css'
 function Signup(){
     return(
         <>
-        <div className={styles.container}>
+
         <FormUser />
-        </div>
+
         <Contacts/>
         <Footer/>
         </>

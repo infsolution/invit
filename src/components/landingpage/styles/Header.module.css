@@ -25,7 +25,8 @@ border-radius: 5rem;
 }
 
 .card img{
-    height: 25rem;
+    height: 20rem;
+    width: 50%;
     margin-left: auto;
     opacity: 0.6;
 }
@@ -34,7 +35,7 @@ border-radius: 5rem;
     margin-left: 1rem;
     border-radius: 1.5rem;
     height: 10rem;
-    width: 13rem;
+    width: 8rem;
     align-content: center;
     align-items: center;
 }

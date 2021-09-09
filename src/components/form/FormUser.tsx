@@ -1,12 +1,14 @@
-import Button from './Button'
-import  Input  from './Input'
+import React from 'react'
 import Link from 'next/link'
 import variables from '../../utils/variables'
 import { useRouter } from 'next/router'
 import  styles  from '../form/styles/FormCreate.module.css'
+import {Form, Button} from 'react-bootstrap';
 export function FormUser(){
     const router = useRouter()
+    const [isLoading, setLoading] = React.useState(false)
     async function handleCreate(event){
+        setLoading(true)
         const body = {
             name: event.target.name.value,
             email: event.target.email.value,
@@ -23,6 +25,7 @@ export function FormUser(){
                 body:JSON.stringify(body)
             })
             if(!result.ok) throw new Error(`Error: ${result.statusText}`)
+            setLoading(false)
             router.push('/login')
        } catch (error) {
            console.log(error)
@@ -30,24 +33,37 @@ export function FormUser(){
     }
 
     return(
-        <>
-        <div className={`${styles.container} animeLeft`}>
-        <h1 className={styles.title}>Crie sua conta grátis</h1>
-        <form  onSubmit={handleCreate} className={styles.forms}>
-            <Input label="Nome" type="text" name="name" style={styles}/>
-            <Input label="Email" type="text" name="email" style={styles}/>
-            <Input label="Telefone" type="text" name="phone" style={styles}/>
-            <Input label="Senha" type="password" name="password" style={styles}/>
-            <Button style={styles.button}>Criar</Button>
-        </form>
-        <div className={styles.signin}>
-                <h2 className={styles.subtitle}>Já tem conta?</h2>
-            <Link href="/login">
-                <a className={styles.button}>Faça login</a>
-            </Link>
+        <div className={styles.container}>
+            <div>
+        <h1 className={styles.title}>Crie sua conta</h1>
+        <Form  onSubmit={handleCreate} >
+        <Form.Group controlId="formBasicEmail">
+            <Form.Control type="text" placeholder="Nome" name="name" required/>
+        </Form.Group>
+        <Form.Group controlId="formBasicEmail">
+            <Form.Control type="text" placeholder="Telefone" name="phone" required/>
+        </Form.Group>
+        <Form.Group controlId="formBasicEmail">
+            <Form.Control type="email" placeholder="Email" name="email" required/>
+        </Form.Group>
+        <Form.Group controlId="formBasicPassword">
+            <Form.Control type="password" placeholder="Password" name={"password"}  required/>
+        </Form.Group> 
+        <Form.Group controlId="formBasicCheckbox">
+            <Form.Text >Já tem conta?</Form.Text>
+            <Form.Text>
+                <Link href="/login">
+                    <a>
+                        LOGIN
+                    </a>
+                </Link>
+            </Form.Text>
+        </Form.Group>   
+            <Button variant="primary" type="submit" disabled={isLoading} block>
+            {isLoading ? 'Carregando…' : 'Criar'}
+            </Button>
+        </Form>
         </div>
-
         </div>
-        </>
     )
 }
